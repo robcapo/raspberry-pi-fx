@@ -1,0 +1,120 @@
+\hypertarget{subsys_8h}{\section{subsys.\+h File Reference}
+\label{subsys_8h}\index{subsys.\+h@{subsys.\+h}}
+}
+{\ttfamily \#include \char`\"{}task.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}system.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}uart.\+h\char`\"{}}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structversion__mmb__t}{version\+\_\+mmb\+\_\+t}
+\begin{DoxyCompactList}\small\item\em Version typedef to store software version of subsystem. \end{DoxyCompactList}\item 
+union \hyperlink{unionversion__t}{version\+\_\+t}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{group__subsys_gaf723de738584c5c631981cac7d7d6ae9}{\#define {\bfseries L\+O\+G\+\_\+\+B\+U\+F}~\&tx0}\label{group__subsys_gaf723de738584c5c631981cac7d7d6ae9}
+
+\item 
+\hypertarget{group__subsys_ga5ecc8d4d514ebae84adabf96e0517f6f}{\#define \hyperlink{group__subsys_ga5ecc8d4d514ebae84adabf96e0517f6f}{Get\+Log\+Timestamp}()~0}\label{group__subsys_ga5ecc8d4d514ebae84adabf96e0517f6f}
+
+\begin{DoxyCompactList}\small\item\em Get\+Log\+Timestamp must be defined so that it returns a integer (up to 32 bits) timestamp. \end{DoxyCompactList}\item 
+\hypertarget{group__subsys_ga2c1e430ba1e34cfd1f6fc97bc26da884}{\#define {\bfseries Register\+Receiver}(fn)~\hyperlink{group__subsys_gab7e855156a8e0dd9472e2c0e141b268a}{Register\+Receiver\+U\+A\+R\+T0}(fn)}\label{group__subsys_ga2c1e430ba1e34cfd1f6fc97bc26da884}
+
+\item 
+\hypertarget{group__subsys_gac703facd927c53af44c31fa32aa3548b}{\#define {\bfseries Register\+Receiver\+U\+A\+R\+T}(fn)~\hyperlink{group__subsys_gab7e855156a8e0dd9472e2c0e141b268a}{Register\+Receiver\+U\+A\+R\+T0}(fn)}\label{group__subsys_gac703facd927c53af44c31fa32aa3548b}
+
+\item 
+\hypertarget{group__subsys_ga8142e07a8d859f42aa50094b1a4c98a8}{\#define {\bfseries Unregister\+Receiver}(fn)~\hyperlink{group__subsys_ga36215ce96afabbcb83f1a03b13fe0e44}{Unregister\+Receiver\+U\+A\+R\+T0}(fn)}\label{group__subsys_ga8142e07a8d859f42aa50094b1a4c98a8}
+
+\item 
+\hypertarget{group__subsys_gae1ff181cb9062b97a2151875c4268c4a}{\#define {\bfseries Unregister\+Receiver\+U\+A\+R\+T}(fn)~\hyperlink{group__subsys_ga36215ce96afabbcb83f1a03b13fe0e44}{Unregister\+Receiver\+U\+A\+R\+T0}(fn)}\label{group__subsys_gae1ff181cb9062b97a2151875c4268c4a}
+
+\item 
+\hypertarget{group__subsys_gad914679f013f117ec7470f75fee6149a}{\#define \hyperlink{group__subsys_gad914679f013f117ec7470f75fee6149a}{N\+U\+M\+\_\+\+S\+U\+B\+S\+Y\+S\+T\+E\+M\+S}~(U\+N\+K\+N\+O\+W\+N -\/ S\+Y\+S\+T\+E\+M + 1)}\label{group__subsys_gad914679f013f117ec7470f75fee6149a}
+
+\begin{DoxyCompactList}\small\item\em The number of subsystems that the logging module knows about including S\+Y\+S\+T\+E\+M and U\+N\+K\+N\+O\+W\+N which will always be the first and last subsystem indices. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{group__subsys_ga37636e04877dd6421933267897117036}{typedef void($\ast$ {\bfseries receiver\+\_\+t} )(char)}\label{group__subsys_ga37636e04877dd6421933267897117036}
+
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{group__subsys_ga1d309594956a828563f9181d766daa08}{priority\+\_\+level} \{ \\*
+{\bfseries O\+F\+F} = 0, 
+{\bfseries F\+O\+R\+C\+E} = 0, 
+{\bfseries F\+O\+R\+C\+E\+\_\+\+L\+O\+G} = 0, 
+{\bfseries I\+M\+P\+O\+R\+T\+A\+N\+T\+\_\+\+E\+R\+R\+O\+R} = 1, 
+\\*
+{\bfseries H\+I\+G\+H\+E\+S\+T\+\_\+\+P\+R\+I\+O\+R\+I\+T\+Y} = 1, 
+{\bfseries E\+R\+R\+O\+R}, 
+{\bfseries H\+I\+G\+H\+E\+R\+\_\+\+P\+R\+I\+O\+R\+I\+T\+Y} = 2, 
+{\bfseries V\+E\+R\+B\+O\+S\+E\+\_\+\+E\+R\+R\+O\+R}, 
+\\*
+{\bfseries H\+I\+G\+H\+\_\+\+P\+R\+I\+O\+R\+I\+T\+Y} = 3, 
+{\bfseries I\+M\+P\+O\+R\+T\+A\+N\+T\+\_\+\+W\+A\+R\+N\+I\+N\+G}, 
+{\bfseries M\+E\+D\+I\+U\+M\+\_\+\+H\+I\+G\+H\+\_\+\+P\+R\+I\+O\+R\+I\+T\+Y} = 4, 
+{\bfseries W\+A\+R\+N\+I\+N\+G}, 
+\\*
+{\bfseries M\+E\+D\+I\+U\+M\+\_\+\+P\+R\+I\+O\+R\+I\+T\+Y} = 5, 
+{\bfseries V\+E\+R\+B\+O\+S\+E\+\_\+\+W\+A\+R\+N\+I\+N\+G}, 
+{\bfseries M\+E\+D\+I\+U\+M\+\_\+\+L\+O\+W\+\_\+\+P\+R\+I\+O\+R\+I\+T\+Y} = 6, 
+{\bfseries I\+M\+P\+O\+R\+T\+A\+N\+T\+\_\+\+M\+E\+S\+S\+A\+G\+E}, 
+\\*
+{\bfseries L\+O\+W\+\_\+\+P\+R\+I\+O\+R\+I\+T\+Y} = 7, 
+{\bfseries M\+E\+S\+S\+A\+G\+E}, 
+{\bfseries L\+O\+W\+E\+R\+\_\+\+P\+R\+I\+O\+R\+I\+T\+Y} = 8, 
+{\bfseries V\+E\+R\+B\+O\+S\+E\+\_\+\+M\+E\+S\+S\+A\+G\+E}, 
+\\*
+{\bfseries L\+O\+W\+E\+S\+T\+\_\+\+P\+R\+I\+O\+R\+I\+T\+Y} = 9, 
+{\bfseries E\+V\+E\+R\+Y\+T\+H\+I\+N\+G}
+ \}
+\begin{DoxyCompactList}\small\item\em priority Level enumeration used for log commands and tasks or saved. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{group__subsys_gad5c93d1d78ea66a8e631957653e03a74}{Log\+Str} (char $\ast$str,...)
+\begin{DoxyCompactList}\small\item\em Logs the null terminated string at the pointer (str) \end{DoxyCompactList}\item 
+void \hyperlink{group__subsys_ga450327eef2cd5f75293d462e72c81d63}{Log\+Msg} (enum \hyperlink{group__subsys_gadc5d9f07ddb402114afea1177fc9301b}{sys\+\_\+index} sys, enum \hyperlink{group__subsys_ga1d309594956a828563f9181d766daa08}{priority\+\_\+level} lev, char $\ast$str,...)
+\begin{DoxyCompactList}\small\item\em Logs the message at the pointer (str) with a timestamp and subsystem name. \end{DoxyCompactList}\item 
+void \hyperlink{group__subsys_ga93f514700ccf00d08dbdcff7f1224eb2}{System\+Init} (void)
+\begin{DoxyCompactList}\small\item\em Initialize the subsystem module. \end{DoxyCompactList}\item 
+void \hyperlink{group__subsys_ga395cbaf6db74454b690e444a3dddb8c1}{Sub\+System\+Tick} (void)
+\begin{DoxyCompactList}\small\item\em Check on system resources and call appropriate functions, callbacks, or receivers. \end{DoxyCompactList}\item 
+void \hyperlink{group__subsys_ga4cb5a7bc96bce54eaedba65a8f4847b5}{Subsystem\+Init} (enum \hyperlink{group__subsys_gadc5d9f07ddb402114afea1177fc9301b}{sys\+\_\+index} sys, enum \hyperlink{group__subsys_ga1d309594956a828563f9181d766daa08}{priority\+\_\+level} lev, char $\ast$name, \hyperlink{unionversion__t}{version\+\_\+t} version)
+\begin{DoxyCompactList}\small\item\em Initialize settings for a subsystem -\/ critical for proper logging and command interface. \end{DoxyCompactList}\item 
+void \hyperlink{group__subsys_ga7b8ad0486f5f208eef9d58b06931e7ca}{Register\+Callback} (enum \hyperlink{group__subsys_gadc5d9f07ddb402114afea1177fc9301b}{sys\+\_\+index} sys, void($\ast$callback)(char $\ast$cmd))
+\begin{DoxyCompactList}\small\item\em Register a callback function for a subsystem. \end{DoxyCompactList}\item 
+char $\ast$ \hyperlink{group__subsys_ga3e80779de12bce5e580cf22057427252}{Get\+Priority\+Level\+Name} (enum \hyperlink{group__subsys_ga1d309594956a828563f9181d766daa08}{priority\+\_\+level} lev)
+\begin{DoxyCompactList}\small\item\em Return a pointer to a string corresponding to the name of a priority level. \end{DoxyCompactList}\item 
+char $\ast$ \hyperlink{group__subsys_ga5e63d8d7c86e335b6d626c216e4acdc7}{Get\+Subsystem\+Name} (enum \hyperlink{group__subsys_gadc5d9f07ddb402114afea1177fc9301b}{sys\+\_\+index} sys)
+\begin{DoxyCompactList}\small\item\em Return a pointer to a string corresponding to the name of the subsystem. \end{DoxyCompactList}\item 
+enum \hyperlink{group__subsys_ga1d309594956a828563f9181d766daa08}{priority\+\_\+level} \hyperlink{group__subsys_ga4a2dc0fcdac8af77bdb6fdcc77ceb585}{Get\+Subsystem\+Priority} (enum \hyperlink{group__subsys_gadc5d9f07ddb402114afea1177fc9301b}{sys\+\_\+index} sys)
+\begin{DoxyCompactList}\small\item\em Get the logging priority level of a subsystem. \end{DoxyCompactList}\item 
+void \hyperlink{group__subsys_gab7e855156a8e0dd9472e2c0e141b268a}{Register\+Receiver\+U\+A\+R\+T0} (receiver\+\_\+t fn)
+\begin{DoxyCompactList}\small\item\em Register a receiver to subscribe to U\+A\+R\+T0. \end{DoxyCompactList}\item 
+void \hyperlink{group__subsys_ga36215ce96afabbcb83f1a03b13fe0e44}{Unregister\+Receiver\+U\+A\+R\+T0} (receiver\+\_\+t fn)
+\begin{DoxyCompactList}\small\item\em Unregister a receiver from U\+A\+R\+T0. \end{DoxyCompactList}\item 
+void \hyperlink{group__subsys_ga33bcde07b48383dabda400960d652fe3}{Register\+Receiver\+U\+A\+R\+T1} (receiver\+\_\+t fn)
+\begin{DoxyCompactList}\small\item\em Register a receiver to subscribe to U\+A\+R\+T1. \end{DoxyCompactList}\item 
+void \hyperlink{group__subsys_ga92477e997b5d091656dbf8174933a8bb}{Unregister\+Receiver\+U\+A\+R\+T1} (receiver\+\_\+t fn)
+\begin{DoxyCompactList}\small\item\em Unregister a receiver from U\+A\+R\+T1. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{group__subsys_ga85637dd904a74841f18c9d65eca37c35}{\hyperlink{structbuffer__t}{buffer\+\_\+t} {\bfseries rx0}}\label{group__subsys_ga85637dd904a74841f18c9d65eca37c35}
+
+\item 
+\hypertarget{group__subsys_ga831fd91ae9bffe2e1e335d61414fbb6d}{\hyperlink{structbuffer__t}{buffer\+\_\+t} {\bfseries tx0}}\label{group__subsys_ga831fd91ae9bffe2e1e335d61414fbb6d}
+
+\item 
+\hypertarget{group__subsys_ga510a4fd51e1e3242d95a27544607288b}{\hyperlink{structbuffer__t}{buffer\+\_\+t} {\bfseries rx1}}\label{group__subsys_ga510a4fd51e1e3242d95a27544607288b}
+
+\item 
+\hypertarget{group__subsys_ga2d48e4797a64844f13a98cf99d6d77bc}{\hyperlink{structbuffer__t}{buffer\+\_\+t} {\bfseries tx1}}\label{group__subsys_ga2d48e4797a64844f13a98cf99d6d77bc}
+
+\end{DoxyCompactItemize}

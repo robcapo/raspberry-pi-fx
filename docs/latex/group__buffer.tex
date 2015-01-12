@@ -1,0 +1,209 @@
+\hypertarget{group__buffer}{\section{F\+I\+F\+O Buffer}
+\label{group__buffer}\index{F\+I\+F\+O Buffer@{F\+I\+F\+O Buffer}}
+}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structbuffer__t}{buffer\+\_\+t}
+\begin{DoxyCompactList}\small\item\em data structure to hold the required information for each buffer \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group__buffer_gad9732dcc12e8aa91d552188c72dea329}{item\+\_\+t}~char
+\begin{DoxyCompactList}\small\item\em The F\+I\+F\+O buffer can buffer any data type, from a char to a complex structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{group__buffer_gace2f2a6d7a1b5fe4ce4fff31602da42a}{Push} (\hyperlink{structbuffer__t}{buffer\+\_\+t} $\ast$buffer, \hyperlink{group__buffer_gad9732dcc12e8aa91d552188c72dea329}{item\+\_\+t} data)
+\begin{DoxyCompactList}\small\item\em Push will add one item, data, to the F\+I\+F\+O buffer. \end{DoxyCompactList}\item 
+\hyperlink{group__buffer_gad9732dcc12e8aa91d552188c72dea329}{item\+\_\+t} \hyperlink{group__buffer_ga15e0136a546bc0d729a3151d5ffbcaaa}{Pop} (\hyperlink{structbuffer__t}{buffer\+\_\+t} $\ast$buffer)
+\begin{DoxyCompactList}\small\item\em Pop will return one item from the front of the F\+I\+F\+O buffer. \end{DoxyCompactList}\item 
+uint16\+\_\+t \hyperlink{group__buffer_ga01cf612935f5c2ae330920b78e8c8b9f}{Get\+Size} (\hyperlink{structbuffer__t}{buffer\+\_\+t} $\ast$buffer)
+\begin{DoxyCompactList}\small\item\em Get\+Size returns the number of items in the F\+I\+F\+O buffer. \end{DoxyCompactList}\item 
+void \hyperlink{group__buffer_gaf8383e89c549b8c212ebc6147bb5f4fc}{Buffer\+Init} (\hyperlink{structbuffer__t}{buffer\+\_\+t} $\ast$buffer, \hyperlink{group__buffer_gad9732dcc12e8aa91d552188c72dea329}{item\+\_\+t} $\ast$data\+\_\+array, uint16\+\_\+t max\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Initialize a F\+I\+F\+O buffer. \end{DoxyCompactList}\item 
+void \hyperlink{group__buffer_gaa42698076e74a52bac047b35b3bf6b97}{Buffer\+Set\+Callback} (\hyperlink{structbuffer__t}{buffer\+\_\+t} $\ast$buffer, void($\ast$Callback)(\hyperlink{structbuffer__t}{buffer\+\_\+t} $\ast$buffer))
+\begin{DoxyCompactList}\small\item\em Set Callback function for buffer to be called after items are Push'd to the buffer. \end{DoxyCompactList}\item 
+void \hyperlink{group__buffer_ga56da56e8e27b583bd46efb4d391b53da}{Buffer\+Clear\+Callback} (\hyperlink{structbuffer__t}{buffer\+\_\+t} $\ast$buffer)
+\begin{DoxyCompactList}\small\item\em Clear/remove the callback function for 'buffer'. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Michael Muhlbaier 
+\end{DoxyAuthor}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{group__buffer_gad9732dcc12e8aa91d552188c72dea329}{\index{F\+I\+F\+O Buffer@{F\+I\+F\+O Buffer}!item\+\_\+t@{item\+\_\+t}}
+\index{item\+\_\+t@{item\+\_\+t}!F\+I\+F\+O Buffer@{F\+I\+F\+O Buffer}}
+\subsubsection[{item\+\_\+t}]{\setlength{\rightskip}{0pt plus 5cm}\#define item\+\_\+t~char}}\label{group__buffer_gad9732dcc12e8aa91d552188c72dea329}
+
+
+The F\+I\+F\+O buffer can buffer any data type, from a char to a complex structure. 
+
+Define item\+\_\+t to be the type of data to buffer. Default is char, it is suggested to override this in \hyperlink{system_8h_source}{system.\+h} if desired.
+
+Note\+: only one data type can be defined per build. If two different data type buffers are required in a single project you can make copies of \hyperlink{buffer_8h}{buffer.\+h} and buffer.\+c or update the module to track the item size per buffer. 
+
+\subsection{Function Documentation}
+\hypertarget{group__buffer_ga56da56e8e27b583bd46efb4d391b53da}{\index{F\+I\+F\+O Buffer@{F\+I\+F\+O Buffer}!Buffer\+Clear\+Callback@{Buffer\+Clear\+Callback}}
+\index{Buffer\+Clear\+Callback@{Buffer\+Clear\+Callback}!F\+I\+F\+O Buffer@{F\+I\+F\+O Buffer}}
+\subsubsection[{Buffer\+Clear\+Callback}]{\setlength{\rightskip}{0pt plus 5cm}void Buffer\+Clear\+Callback (
+\begin{DoxyParamCaption}
+\item[{{\bf buffer\+\_\+t} $\ast$}]{buffer}
+\end{DoxyParamCaption}
+)}}\label{group__buffer_ga56da56e8e27b583bd46efb4d391b53da}
+
+
+Clear/remove the callback function for 'buffer'. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & Pointer to the \hyperlink{structbuffer__t}{buffer\+\_\+t} data structure whose callback function is to be cleared \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__buffer_gaf8383e89c549b8c212ebc6147bb5f4fc}{\index{F\+I\+F\+O Buffer@{F\+I\+F\+O Buffer}!Buffer\+Init@{Buffer\+Init}}
+\index{Buffer\+Init@{Buffer\+Init}!F\+I\+F\+O Buffer@{F\+I\+F\+O Buffer}}
+\subsubsection[{Buffer\+Init}]{\setlength{\rightskip}{0pt plus 5cm}void Buffer\+Init (
+\begin{DoxyParamCaption}
+\item[{{\bf buffer\+\_\+t} $\ast$}]{buffer, }
+\item[{{\bf item\+\_\+t} $\ast$}]{data\+\_\+array, }
+\item[{uint16\+\_\+t}]{max\+\_\+size}
+\end{DoxyParamCaption}
+)}}\label{group__buffer_gaf8383e89c549b8c212ebc6147bb5f4fc}
+
+
+Initialize a F\+I\+F\+O buffer. 
+
+Example code\+: 
+\begin{DoxyCode}
+\textcolor{preprocessor}{#define TX\_BUFFER\_LENGTH 512}
+\hyperlink{structbuffer__t}{buffer\_t} tx; \textcolor{comment}{// transmit buffer}
+\hyperlink{group__buffer_gad9732dcc12e8aa91d552188c72dea329}{item\_t} tx\_buffer\_array[TX\_BUFFER\_LENGTH]
+...
+BufferInit(&tx, &tx\_buffer\_array[0], TX\_BUFFER\_LENGTH);
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & Pointer to the \hyperlink{structbuffer__t}{buffer\+\_\+t} data structure to be initialized \\
+\hline
+{\em data\+\_\+array} & Array of item\+\_\+t data to implement the actual buffer \\
+\hline
+{\em max\+\_\+size} & Maximum size of the buffer (should be the same length as the array) \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__buffer_gaa42698076e74a52bac047b35b3bf6b97}{\index{F\+I\+F\+O Buffer@{F\+I\+F\+O Buffer}!Buffer\+Set\+Callback@{Buffer\+Set\+Callback}}
+\index{Buffer\+Set\+Callback@{Buffer\+Set\+Callback}!F\+I\+F\+O Buffer@{F\+I\+F\+O Buffer}}
+\subsubsection[{Buffer\+Set\+Callback}]{\setlength{\rightskip}{0pt plus 5cm}void Buffer\+Set\+Callback (
+\begin{DoxyParamCaption}
+\item[{{\bf buffer\+\_\+t} $\ast$}]{buffer, }
+\item[{void($\ast$)({\bf buffer\+\_\+t} $\ast$buffer)}]{Callback}
+\end{DoxyParamCaption}
+)}}\label{group__buffer_gaa42698076e74a52bac047b35b3bf6b97}
+
+
+Set Callback function for buffer to be called after items are Push'd to the buffer. 
+
+The callback function will be called after anything is Push'd to the buffer. The function will be called with a pointer to the buffer which had an item pushed onto it.
+
+Example\+: 
+\begin{DoxyCode}
+\textcolor{keywordtype}{void} TxCallback(\hyperlink{structbuffer__t}{buffer\_t} * buf);
+\textcolor{preprocessor}{#define TX\_BUFFER\_LENGTH 512}
+\hyperlink{structbuffer__t}{buffer\_t} tx; \textcolor{comment}{// transmit buffer}
+\hyperlink{group__buffer_gad9732dcc12e8aa91d552188c72dea329}{item\_t} tx\_buffer\_array[TX\_BUFFER\_LENGTH]
+...
+BufferInit(&tx, &tx\_buffer\_array[0], TX\_BUFFER\_LENGTH);
+\hyperlink{group__buffer_gaa42698076e74a52bac047b35b3bf6b97}{BufferSetCallback}(&tx, TxCallback);
+...
+void TxCallback(\hyperlink{structbuffer__t}{buffer\_t} * buf) \{
+        SET\_UART\_TX\_IE();
+\}
+\end{DoxyCode}
+ This example is useful for a u\+C which has a hardware Tx interrupt flag which is set whenever there is room in the hardware Tx F\+I\+F\+O buffer. When done transmitting the interrupt must be disabled to avoid getting stuck in the I\+S\+R. When data needs to be sent the interrupt must be enabled again, thus the need for the callback.
+
+Another usage could be to handle received data on a receive buffer.
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & Pointer to the \hyperlink{structbuffer__t}{buffer\+\_\+t} data structure whose callback function is to be set \\
+\hline
+{\em Callback} & Function pointer to a callback function with no return value and a \hyperlink{structbuffer__t}{buffer\+\_\+t} pointer input. \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__buffer_ga01cf612935f5c2ae330920b78e8c8b9f}{\index{F\+I\+F\+O Buffer@{F\+I\+F\+O Buffer}!Get\+Size@{Get\+Size}}
+\index{Get\+Size@{Get\+Size}!F\+I\+F\+O Buffer@{F\+I\+F\+O Buffer}}
+\subsubsection[{Get\+Size}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t Get\+Size (
+\begin{DoxyParamCaption}
+\item[{{\bf buffer\+\_\+t} $\ast$}]{buffer}
+\end{DoxyParamCaption}
+)}}\label{group__buffer_ga01cf612935f5c2ae330920b78e8c8b9f}
+
+
+Get\+Size returns the number of items in the F\+I\+F\+O buffer. 
+
+\hyperlink{group__buffer_gaf8383e89c549b8c212ebc6147bb5f4fc}{Buffer\+Init()} should be used to initialize the buffer otherwise the return value will be meaningless
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & Pointer to the \hyperlink{structbuffer__t}{buffer\+\_\+t} data structure holding the buffer info \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of items in the buffer 
+\end{DoxyReturn}
+\hypertarget{group__buffer_ga15e0136a546bc0d729a3151d5ffbcaaa}{\index{F\+I\+F\+O Buffer@{F\+I\+F\+O Buffer}!Pop@{Pop}}
+\index{Pop@{Pop}!F\+I\+F\+O Buffer@{F\+I\+F\+O Buffer}}
+\subsubsection[{Pop}]{\setlength{\rightskip}{0pt plus 5cm}{\bf item\+\_\+t} Pop (
+\begin{DoxyParamCaption}
+\item[{{\bf buffer\+\_\+t} $\ast$}]{buffer}
+\end{DoxyParamCaption}
+)}}\label{group__buffer_ga15e0136a546bc0d729a3151d5ffbcaaa}
+
+
+Pop will return one item from the front of the F\+I\+F\+O buffer. 
+
+Pop will return the item at the front of the F\+I\+F\+O buffer then increment (and wrap as needed) the front. If the buffer is empty it will return 0.
+
+\hyperlink{group__buffer_gaf8383e89c549b8c212ebc6147bb5f4fc}{Buffer\+Init()} must be used to initialize the buffer prior to calling Pop and passing it a pointer to the buffer.
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & Pointer to the \hyperlink{structbuffer__t}{buffer\+\_\+t} data structure holding the buffer info \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Data of type item\+\_\+t from the front of the buffer
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+Pop is not yet interrupt safe 
+\end{DoxyWarning}
+\hypertarget{group__buffer_gace2f2a6d7a1b5fe4ce4fff31602da42a}{\index{F\+I\+F\+O Buffer@{F\+I\+F\+O Buffer}!Push@{Push}}
+\index{Push@{Push}!F\+I\+F\+O Buffer@{F\+I\+F\+O Buffer}}
+\subsubsection[{Push}]{\setlength{\rightskip}{0pt plus 5cm}void Push (
+\begin{DoxyParamCaption}
+\item[{{\bf buffer\+\_\+t} $\ast$}]{buffer, }
+\item[{{\bf item\+\_\+t}}]{data}
+\end{DoxyParamCaption}
+)}}\label{group__buffer_gace2f2a6d7a1b5fe4ce4fff31602da42a}
+
+
+Push will add one item, data, to the F\+I\+F\+O buffer. 
+
+Push will add one item to the rear of the data buffer then increment (and wrap is needed) the rear. If the buffer is full it will overwrite the data at the front of the buffer and increment the front.
+
+\hyperlink{group__buffer_gaf8383e89c549b8c212ebc6147bb5f4fc}{Buffer\+Init()} must be used to initialize the buffer prior to calling Push and passing it a pointer to the buffer.
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & Pointer to the \hyperlink{structbuffer__t}{buffer\+\_\+t} data structure holding the buffer info \\
+\hline
+{\em data} & item\+\_\+t data to be added to the rear of the F\+I\+F\+O buffer\\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+Push is not yet interrupt safe 
+\end{DoxyWarning}

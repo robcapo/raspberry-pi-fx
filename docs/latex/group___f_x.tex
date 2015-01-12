@@ -1,0 +1,287 @@
+\hypertarget{group___f_x}{\section{Processor}
+\label{group___f_x}\index{Processor@{Processor}}
+}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_delay___buffer}{Delay\+\_\+\+Buffer}
+\item 
+class \hyperlink{class_f_x___processor}{F\+X\+\_\+\+Processor}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{group___f_x_gaef3865820e4634371db0261a9b0a9877}{\#define {\bfseries D\+E\+L\+A\+Y\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+C\+P\+P\+\_\+}}\label{group___f_x_gaef3865820e4634371db0261a9b0a9877}
+
+\item 
+\hypertarget{group___f_x_ga473776433ac44bc525b8cd5186969b4b}{\#define {\bfseries B\+U\+F\+F\+E\+R\+\_\+\+C\+A\+P\+A\+C\+I\+T\+Y}~88200}\label{group___f_x_ga473776433ac44bc525b8cd5186969b4b}
+
+\item 
+\hypertarget{group___f_x_ga4b76a0c2859cfd819a343a780070ee2b}{\#define {\bfseries S\+A\+M\+P\+L\+E\+\_\+\+R\+A\+T\+E}~44100}\label{group___f_x_ga4b76a0c2859cfd819a343a780070ee2b}
+
+\item 
+\hypertarget{group___f_x_ga7814ab808e89cbde6ae474e691d7c6ea}{\#define {\bfseries F\+X\+\_\+\+P\+R\+O\+C\+E\+S\+S\+O\+R\+\_\+\+C\+P\+P\+\_\+}}\label{group___f_x_ga7814ab808e89cbde6ae474e691d7c6ea}
+
+\item 
+\hypertarget{group___f_x_ga473776433ac44bc525b8cd5186969b4b}{\#define \hyperlink{group___f_x_ga473776433ac44bc525b8cd5186969b4b}{B\+U\+F\+F\+E\+R\+\_\+\+C\+A\+P\+A\+C\+I\+T\+Y}~88200}\label{group___f_x_ga473776433ac44bc525b8cd5186969b4b}
+
+\begin{DoxyCompactList}\small\item\em Maximum size in samples of the delay buffer. \end{DoxyCompactList}\item 
+\hypertarget{group___f_x_ga4b76a0c2859cfd819a343a780070ee2b}{\#define \hyperlink{group___f_x_ga4b76a0c2859cfd819a343a780070ee2b}{S\+A\+M\+P\+L\+E\+\_\+\+R\+A\+T\+E}~44100}\label{group___f_x_ga4b76a0c2859cfd819a343a780070ee2b}
+
+\begin{DoxyCompactList}\small\item\em Sampling rate of the sound card. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{group___f_x_ga206aa2d2b25bdca17a838a03412b11f7}{typedef double \hyperlink{group___f_x_ga206aa2d2b25bdca17a838a03412b11f7}{fxparam}}\label{group___f_x_ga206aa2d2b25bdca17a838a03412b11f7}
+
+\begin{DoxyCompactList}\small\item\em Type to hold an F\+X parameter (i.\+e. distortion level, overdrive, tremolo rate, etc. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{group___f_x_ga6ee5a38b8497791c4b173dcea4116086}{enum {\bfseries F\+X\+\_\+types} \{ \\*
+{\bfseries N\+O\+N\+E}, 
+{\bfseries O\+V\+E\+R\+D\+R\+I\+V\+E}, 
+{\bfseries D\+I\+S\+T\+O\+R\+T\+I\+O\+N}, 
+{\bfseries R\+E\+V\+E\+R\+B}, 
+\\*
+{\bfseries T\+R\+E\+M\+O\+L\+O}, 
+{\bfseries W\+A\+H}
+ \}}\label{group___f_x_ga6ee5a38b8497791c4b173dcea4116086}
+
+\item 
+\hypertarget{group___f_x_ga7071d6115e95b5800a26c1ef3c03ffae}{enum {\bfseries F\+X\+\_\+param\+\_\+types} \{ \\*
+{\bfseries N\+O\+\_\+\+P\+A\+R\+A\+M}, 
+{\bfseries O\+D\+\_\+\+D\+R\+I\+V\+E}, 
+{\bfseries T\+R\+\_\+\+R\+A\+T\+E}, 
+{\bfseries T\+R\+\_\+\+O\+F\+F\+\_\+\+V\+O\+L\+U\+M\+E}, 
+\\*
+{\bfseries D\+S\+\_\+\+D\+I\+S\+T}, 
+{\bfseries R\+V\+\_\+\+D\+E\+C\+A\+Y}, 
+{\bfseries W\+A\+H\+\_\+\+D\+U\+R\+A\+T\+I\+O\+N}, 
+{\bfseries L\+A\+S\+T\+\_\+\+P\+A\+R\+A\+M}
+ \}}\label{group___f_x_ga7071d6115e95b5800a26c1ef3c03ffae}
+
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{group___f_x_ga5d9be4601c4309b6ff4de2dc286f4da4}{Delay\+\_\+\+Buffer\+::new\+Frame} (jack\+\_\+default\+\_\+audio\+\_\+sample\+\_\+t $\ast$sample)
+\begin{DoxyCompactList}\small\item\em Add a frame of samples to the buffer and set the output buffer to the mixture of the delay and the dry signal. \end{DoxyCompactList}\item 
+void \hyperlink{group___f_x_ga3e9ddb2b97fffe52c0713c26d89aae65}{Delay\+\_\+\+Buffer\+::set\+Delay\+Length} (double seconds)
+\begin{DoxyCompactList}\small\item\em Set the duration of the delay in seconds. \end{DoxyCompactList}\item 
+void \hyperlink{group___f_x_ga07267d6e8a0f31681e45f755b83245a7}{Delay\+\_\+\+Buffer\+::set\+Decay} (double decay)
+\begin{DoxyCompactList}\small\item\em Set the rate of decay of the delay effect. \end{DoxyCompactList}\item 
+void \hyperlink{group___f_x_ga52bd5fcb9ec627cf7da1ad3ecfc8bb87}{Delay\+\_\+\+Buffer\+::set\+Level} (double level)
+\begin{DoxyCompactList}\small\item\em Set the volume of the echo effect. \end{DoxyCompactList}\item 
+\hyperlink{group___f_x_ga54225f6e4c9f3bde732baa1d824261fc}{Delay\+\_\+\+Buffer\+::\+Delay\+\_\+\+Buffer} (double, double, double, jack\+\_\+nframes\+\_\+t)
+\begin{DoxyCompactList}\small\item\em Initialize a delay buffer. \end{DoxyCompactList}\item 
+\hyperlink{group___f_x_ga7ca5d9ae276fae16385774dd650a463b}{F\+X\+\_\+\+Processor\+::\+F\+X\+\_\+\+Processor} (F\+X\+\_\+types type)
+\begin{DoxyCompactList}\small\item\em Initialize the \hyperlink{class_f_x___processor}{F\+X\+\_\+\+Processor} with a given type defined in F\+X\+\_\+types enum. \end{DoxyCompactList}\item 
+jack\+\_\+default\+\_\+audio\+\_\+sample\+\_\+t \hyperlink{group___f_x_ga28c21e02acafee81891aa7a841a9eb2b}{F\+X\+\_\+\+Processor\+::process} (jack\+\_\+default\+\_\+audio\+\_\+sample\+\_\+t sample)
+\begin{DoxyCompactList}\small\item\em Runs the current F\+X on a sample by sample basis. \end{DoxyCompactList}\item 
+void \hyperlink{group___f_x_ga3db35d06ad4816d43fdee58396a2aa8e}{F\+X\+\_\+\+Processor\+::next\+Fx} (void)
+\begin{DoxyCompactList}\small\item\em Switch to the next F\+X (goes in order of the F\+X\+\_\+types enum). \end{DoxyCompactList}\item 
+void \hyperlink{group___f_x_ga5e82105e6948cefc5dd0233e55c2afe0}{F\+X\+\_\+\+Processor\+::set\+Fx} (F\+X\+\_\+types type)
+\begin{DoxyCompactList}\small\item\em Changes the F\+X to a type defined by the F\+X\+\_\+types enum. \end{DoxyCompactList}\item 
+void \hyperlink{group___f_x_ga02c602d1dd654bc0115b2a600bd3937f}{F\+X\+\_\+\+Processor\+::set\+Param} (F\+X\+\_\+param\+\_\+types param, \hyperlink{group___f_x_ga206aa2d2b25bdca17a838a03412b11f7}{fxparam} value)
+\begin{DoxyCompactList}\small\item\em Sets a parameter value for any of the F\+X in the class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{group___f_x_ga82a3ce8e6e0e8e1e77add80058d5231c}{jack\+\_\+default\+\_\+audio\+\_\+sample\+\_\+t $\ast$ \hyperlink{group___f_x_ga82a3ce8e6e0e8e1e77add80058d5231c}{Delay\+\_\+\+Buffer\+::\+\_\+output\+\_\+buffer}}\label{group___f_x_ga82a3ce8e6e0e8e1e77add80058d5231c}
+
+\begin{DoxyCompactList}\small\item\em Holds one frame of data to be output each time the {\ttfamily new\+Frame} function is called. \end{DoxyCompactList}\item 
+\hypertarget{group___f_x_gacaec3734e7f9717589775bc1bd9a1a08}{\hyperlink{class_f_x___processor}{F\+X\+\_\+\+Processor} $\ast$ \hyperlink{group___f_x_gacaec3734e7f9717589775bc1bd9a1a08}{Delay\+\_\+\+Buffer\+::\+\_\+fx\+\_\+processor}}\label{group___f_x_gacaec3734e7f9717589775bc1bd9a1a08}
+
+\begin{DoxyCompactList}\small\item\em Holds a pointer to the F\+X Processor object that will process each sample as it's echoed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Rob Capo
+\end{DoxyAuthor}
+This file contains the class interface and implementation for the delay buffer object. Details follow.
+
+\begin{DoxyAuthor}{Author}
+Rob Capo
+\end{DoxyAuthor}
+This file contains the class interface and implementation for the F\+X processing object. Details follow. 
+
+\subsection{Function Documentation}
+\hypertarget{group___f_x_ga54225f6e4c9f3bde732baa1d824261fc}{\index{Processor@{Processor}!Delay\+\_\+\+Buffer@{Delay\+\_\+\+Buffer}}
+\index{Delay\+\_\+\+Buffer@{Delay\+\_\+\+Buffer}!Processor@{Processor}}
+\subsubsection[{Delay\+\_\+\+Buffer}]{\setlength{\rightskip}{0pt plus 5cm}Delay\+\_\+\+Buffer\+::\+Delay\+\_\+\+Buffer (
+\begin{DoxyParamCaption}
+\item[{double}]{decay, }
+\item[{double}]{level, }
+\item[{double}]{duration, }
+\item[{jack\+\_\+nframes\+\_\+t}]{frame\+\_\+size}
+\end{DoxyParamCaption}
+)}}\label{group___f_x_ga54225f6e4c9f3bde732baa1d824261fc}
+
+
+Initialize a delay buffer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em decay} & The rate of decay for the buffer (see {\ttfamily set\+Decay}) \\
+\hline
+{\em level} & The level of the delay (see {\ttfamily set\+Level}) \\
+\hline
+{\em duration} & The duration of the delay (see {\ttfamily set\+Delay\+Length}) \\
+\hline
+{\em frame\+\_\+size} & The number of samples in each frame when {\ttfamily process} is called \\
+\hline
+\end{DoxyParams}
+\hypertarget{group___f_x_ga7ca5d9ae276fae16385774dd650a463b}{\index{Processor@{Processor}!F\+X\+\_\+\+Processor@{F\+X\+\_\+\+Processor}}
+\index{F\+X\+\_\+\+Processor@{F\+X\+\_\+\+Processor}!Processor@{Processor}}
+\subsubsection[{F\+X\+\_\+\+Processor}]{\setlength{\rightskip}{0pt plus 5cm}F\+X\+\_\+\+Processor\+::\+F\+X\+\_\+\+Processor (
+\begin{DoxyParamCaption}
+\item[{F\+X\+\_\+types}]{type}
+\end{DoxyParamCaption}
+)}}\label{group___f_x_ga7ca5d9ae276fae16385774dd650a463b}
+
+
+Initialize the \hyperlink{class_f_x___processor}{F\+X\+\_\+\+Processor} with a given type defined in F\+X\+\_\+types enum. 
+
+\hypertarget{group___f_x_ga5d9be4601c4309b6ff4de2dc286f4da4}{\index{Processor@{Processor}!new\+Frame@{new\+Frame}}
+\index{new\+Frame@{new\+Frame}!Processor@{Processor}}
+\subsubsection[{new\+Frame}]{\setlength{\rightskip}{0pt plus 5cm}void Delay\+\_\+\+Buffer\+::new\+Frame (
+\begin{DoxyParamCaption}
+\item[{jack\+\_\+default\+\_\+audio\+\_\+sample\+\_\+t $\ast$}]{sample}
+\end{DoxyParamCaption}
+)}}\label{group___f_x_ga5d9be4601c4309b6ff4de2dc286f4da4}
+
+
+Add a frame of samples to the buffer and set the output buffer to the mixture of the delay and the dry signal. 
+
+All samples will be added to the buffer, mixed with the existing samples, and the {\ttfamily \+\_\+output\+\_\+buffer} will be set to the mixture of the dry signal and the effect.
+
+
+\begin{DoxyParams}{Parameters}
+{\em sample} & Pointer to the frame of samples to add to the buffer \\
+\hline
+\end{DoxyParams}
+\hypertarget{group___f_x_ga3db35d06ad4816d43fdee58396a2aa8e}{\index{Processor@{Processor}!next\+Fx@{next\+Fx}}
+\index{next\+Fx@{next\+Fx}!Processor@{Processor}}
+\subsubsection[{next\+Fx}]{\setlength{\rightskip}{0pt plus 5cm}void F\+X\+\_\+\+Processor\+::next\+Fx (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{group___f_x_ga3db35d06ad4816d43fdee58396a2aa8e}
+
+
+Switch to the next F\+X (goes in order of the F\+X\+\_\+types enum). 
+
+\hypertarget{group___f_x_ga28c21e02acafee81891aa7a841a9eb2b}{\index{Processor@{Processor}!process@{process}}
+\index{process@{process}!Processor@{Processor}}
+\subsubsection[{process}]{\setlength{\rightskip}{0pt plus 5cm}jack\+\_\+default\+\_\+audio\+\_\+sample\+\_\+t F\+X\+\_\+\+Processor\+::process (
+\begin{DoxyParamCaption}
+\item[{jack\+\_\+default\+\_\+audio\+\_\+sample\+\_\+t}]{sample}
+\end{DoxyParamCaption}
+)}}\label{group___f_x_ga28c21e02acafee81891aa7a841a9eb2b}
+
+
+Runs the current F\+X on a sample by sample basis. 
+
+This function should be called for each sample in the frame. It will output the processed frame based on what the selected F\+X is.
+
+
+\begin{DoxyParams}{Parameters}
+{\em sample} & The sample to process\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Processed sample 
+\end{DoxyReturn}
+\hypertarget{group___f_x_ga07267d6e8a0f31681e45f755b83245a7}{\index{Processor@{Processor}!set\+Decay@{set\+Decay}}
+\index{set\+Decay@{set\+Decay}!Processor@{Processor}}
+\subsubsection[{set\+Decay}]{\setlength{\rightskip}{0pt plus 5cm}void Delay\+\_\+\+Buffer\+::set\+Decay (
+\begin{DoxyParamCaption}
+\item[{double}]{decay}
+\end{DoxyParamCaption}
+)}}\label{group___f_x_ga07267d6e8a0f31681e45f755b83245a7}
+
+
+Set the rate of decay of the delay effect. 
+
+This controls how long the echoing signal will be heard after it occurs. If the decay rate is 0, no echo will be heard. If the decay rate is 1 (not recommended), the echo will be infinite. Otherwise, the number will be multiplied by each frame during each pass of the buffer.
+
+
+\begin{DoxyParams}{Parameters}
+{\em decay} & Rate of decay (0 $<$= decay $<$= 1) for the signal \\
+\hline
+\end{DoxyParams}
+\hypertarget{group___f_x_ga3e9ddb2b97fffe52c0713c26d89aae65}{\index{Processor@{Processor}!set\+Delay\+Length@{set\+Delay\+Length}}
+\index{set\+Delay\+Length@{set\+Delay\+Length}!Processor@{Processor}}
+\subsubsection[{set\+Delay\+Length}]{\setlength{\rightskip}{0pt plus 5cm}void Delay\+\_\+\+Buffer\+::set\+Delay\+Length (
+\begin{DoxyParamCaption}
+\item[{double}]{seconds}
+\end{DoxyParamCaption}
+)}}\label{group___f_x_ga3e9ddb2b97fffe52c0713c26d89aae65}
+
+
+Set the duration of the delay in seconds. 
+
+The size of the buffer will automatically be calculated and matched as closely as possible to achieve the desired duration.
+
+
+\begin{DoxyParams}{Parameters}
+{\em seconds} & Number of seconds before echo is heard \\
+\hline
+\end{DoxyParams}
+\hypertarget{group___f_x_ga5e82105e6948cefc5dd0233e55c2afe0}{\index{Processor@{Processor}!set\+Fx@{set\+Fx}}
+\index{set\+Fx@{set\+Fx}!Processor@{Processor}}
+\subsubsection[{set\+Fx}]{\setlength{\rightskip}{0pt plus 5cm}void F\+X\+\_\+\+Processor\+::set\+Fx (
+\begin{DoxyParamCaption}
+\item[{F\+X\+\_\+types}]{type}
+\end{DoxyParamCaption}
+)}}\label{group___f_x_ga5e82105e6948cefc5dd0233e55c2afe0}
+
+
+Changes the F\+X to a type defined by the F\+X\+\_\+types enum. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & An F\+X type defined in the F\+X\+\_\+types enum \\
+\hline
+\end{DoxyParams}
+\hypertarget{group___f_x_ga52bd5fcb9ec627cf7da1ad3ecfc8bb87}{\index{Processor@{Processor}!set\+Level@{set\+Level}}
+\index{set\+Level@{set\+Level}!Processor@{Processor}}
+\subsubsection[{set\+Level}]{\setlength{\rightskip}{0pt plus 5cm}void Delay\+\_\+\+Buffer\+::set\+Level (
+\begin{DoxyParamCaption}
+\item[{double}]{level}
+\end{DoxyParamCaption}
+)}}\label{group___f_x_ga52bd5fcb9ec627cf7da1ad3ecfc8bb87}
+
+
+Set the volume of the echo effect. 
+
+Controls how loud the echo is heard when it is added to the dry signal.
+
+
+\begin{DoxyParams}{Parameters}
+{\em level} & Volume of the echo (0 $<$= level $<$= 1). \\
+\hline
+\end{DoxyParams}
+\hypertarget{group___f_x_ga02c602d1dd654bc0115b2a600bd3937f}{\index{Processor@{Processor}!set\+Param@{set\+Param}}
+\index{set\+Param@{set\+Param}!Processor@{Processor}}
+\subsubsection[{set\+Param}]{\setlength{\rightskip}{0pt plus 5cm}void F\+X\+\_\+\+Processor\+::set\+Param (
+\begin{DoxyParamCaption}
+\item[{F\+X\+\_\+param\+\_\+types}]{param, }
+\item[{{\bf fxparam}}]{value}
+\end{DoxyParamCaption}
+)}}\label{group___f_x_ga02c602d1dd654bc0115b2a600bd3937f}
+
+
+Sets a parameter value for any of the F\+X in the class. 
+
+The F\+X does not have to be active in order to set its parameters. Therefore, default parameters can be set up upon initialization, and they will be remembered as the F\+X type is switched.
+
+
+\begin{DoxyParams}{Parameters}
+{\em param} & The parameter to change as defined in the F\+X\+\_\+param\+\_\+types enum. \\
+\hline
+{\em value} & The value of the parameter to set. \\
+\hline
+\end{DoxyParams}

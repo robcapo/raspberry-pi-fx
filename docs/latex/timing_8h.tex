@@ -1,0 +1,119 @@
+\hypertarget{timing_8h}{\section{timing.\+h File Reference}
+\label{timing_8h}\index{timing.\+h@{timing.\+h}}
+}
+{\ttfamily \#include \char`\"{}system.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}common.\+h\char`\"{}}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structtimestruct__t}{timestruct\+\_\+t}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{group__timing_ga99d7c812ba23bfdba5d29ec2fddf1e83}{\#define {\bfseries F\+C\+Y}~P\+E\+R\+I\+P\+H\+E\+R\+A\+L\+\_\+\+C\+L\+O\+C\+K}\label{group__timing_ga99d7c812ba23bfdba5d29ec2fddf1e83}
+
+\item 
+\hypertarget{group__timing_ga4f7e9d12b2114a53b35b5effe74cebb0}{\#define {\bfseries Timer\+Config\+Hardware}()}\label{group__timing_ga4f7e9d12b2114a53b35b5effe74cebb0}
+
+\item 
+\hypertarget{group__timing_gad888acf7c13a4bedd6541ceb5cf9bf6d}{\#define \hyperlink{group__timing_gad888acf7c13a4bedd6541ceb5cf9bf6d}{T\+I\+M\+E\+R\+\_\+\+P\+E\+R\+I\+O\+D}~C\+A\+T2(P\+R,T\+I\+M\+I\+N\+G\+\_\+\+T\+I\+M\+E\+R)}\label{group__timing_gad888acf7c13a4bedd6541ceb5cf9bf6d}
+
+\begin{DoxyCompactList}\small\item\em Period register for the timer. \end{DoxyCompactList}\item 
+\hypertarget{group__timing_ga552c0784e039bde9cd8c9784bab5ccca}{\#define {\bfseries Timer\+Period\+Set}(x)~\hyperlink{group__timing_gad888acf7c13a4bedd6541ceb5cf9bf6d}{T\+I\+M\+E\+R\+\_\+\+P\+E\+R\+I\+O\+D} = x;}\label{group__timing_ga552c0784e039bde9cd8c9784bab5ccca}
+
+\item 
+\hypertarget{group__timing_ga599217205dc3092c26567a2bd868ef3a}{\#define \hyperlink{group__timing_ga599217205dc3092c26567a2bd868ef3a}{T\+I\+M\+E\+R}~C\+A\+T2(T\+M\+R,T\+I\+M\+I\+N\+G\+\_\+\+T\+I\+M\+E\+R)}\label{group__timing_ga599217205dc3092c26567a2bd868ef3a}
+
+\begin{DoxyCompactList}\small\item\em Register for the timer. \end{DoxyCompactList}\item 
+\hypertarget{group__timing_ga4f39eec8a19f65a58e63ae19fa35e761}{\#define \hyperlink{group__timing_ga4f39eec8a19f65a58e63ae19fa35e761}{Set\+Timer\+Interrupt\+Priority}(x)~C\+A\+T4(T\+I\+M\+I\+N\+G\+\_\+\+I\+P\+C,bits.\+T,T\+I\+M\+I\+N\+G\+\_\+\+T\+I\+M\+E\+R,I\+P) = x}\label{group__timing_ga4f39eec8a19f65a58e63ae19fa35e761}
+
+\begin{DoxyCompactList}\small\item\em Set interrupt priority for the timer interrupt. \end{DoxyCompactList}\item 
+\hypertarget{group__timing_ga5e404b05086df678e0dc0b5d1d03d648}{\#define \hyperlink{group__timing_ga5e404b05086df678e0dc0b5d1d03d648}{T\+I\+M\+E\+R\+\_\+\+I\+N\+T\+E\+R\+R\+U\+P\+T\+\_\+\+F\+L\+A\+G}~C\+A\+T4(T\+I\+M\+I\+N\+G\+\_\+\+I\+F\+S,bits.\+T,T\+I\+M\+I\+N\+G\+\_\+\+T\+I\+M\+E\+R,I\+F)}\label{group__timing_ga5e404b05086df678e0dc0b5d1d03d648}
+
+\begin{DoxyCompactList}\small\item\em Interrupt flag bit for the timer. \end{DoxyCompactList}\item 
+\hypertarget{group__timing_ga655652d7ea836f7f5c7a256a5f478612}{\#define {\bfseries Timer\+Clear\+Interrupt\+Flag}()~\hyperlink{group__timing_ga5e404b05086df678e0dc0b5d1d03d648}{T\+I\+M\+E\+R\+\_\+\+I\+N\+T\+E\+R\+R\+U\+P\+T\+\_\+\+F\+L\+A\+G} = 0}\label{group__timing_ga655652d7ea836f7f5c7a256a5f478612}
+
+\item 
+\hypertarget{group__timing_ga706576a08016b5a14b63b81f5abc2619}{\#define \hyperlink{group__timing_ga706576a08016b5a14b63b81f5abc2619}{T\+I\+M\+E\+R\+\_\+\+I\+N\+T\+E\+R\+R\+U\+P\+T\+\_\+\+E\+N\+A\+B\+L\+E}~C\+A\+T4(T\+I\+M\+I\+N\+G\+\_\+\+I\+E\+C,bits.\+T,T\+I\+M\+I\+N\+G\+\_\+\+T\+I\+M\+E\+R,I\+E)}\label{group__timing_ga706576a08016b5a14b63b81f5abc2619}
+
+\begin{DoxyCompactList}\small\item\em Interrupt enable bit for the timer. \end{DoxyCompactList}\item 
+\hypertarget{group__timing_ga5da9c81a58d4e659363dc9dc8aaf3d92}{\#define {\bfseries Timer\+Interrupt\+Enable}()~\hyperlink{group__timing_ga706576a08016b5a14b63b81f5abc2619}{T\+I\+M\+E\+R\+\_\+\+I\+N\+T\+E\+R\+R\+U\+P\+T\+\_\+\+E\+N\+A\+B\+L\+E} = 1}\label{group__timing_ga5da9c81a58d4e659363dc9dc8aaf3d92}
+
+\item 
+\hypertarget{group__timing_ga23e169025a051520fb0868984a8e0940}{\#define {\bfseries T\+I\+M\+I\+N\+G\+\_\+\+C\+O\+N}~0x\+A000}\label{group__timing_ga23e169025a051520fb0868984a8e0940}
+
+\item 
+\hypertarget{group__timing_gad72f862b30bf264008be594c176b4fae}{\#define {\bfseries T\+I\+M\+I\+N\+G\+\_\+\+P\+R\+E\+S\+C\+A\+L\+E}~1}\label{group__timing_gad72f862b30bf264008be594c176b4fae}
+
+\item 
+\hypertarget{group__timing_gafa1887a89897854e44eda9652eb7d72b}{\#define {\bfseries Configure\+Timer}()~C\+A\+T3(T,T\+I\+M\+I\+N\+G\+\_\+\+T\+I\+M\+E\+R,C\+O\+N) = T\+I\+M\+I\+N\+G\+\_\+\+C\+O\+N}\label{group__timing_gafa1887a89897854e44eda9652eb7d72b}
+
+\item 
+\hypertarget{group__timing_ga491b3c671593195125fc8c5390dc663b}{\#define {\bfseries T\+I\+M\+I\+N\+G\+\_\+\+V\+E\+C\+T\+O\+R}~C\+A\+T3(\+\_\+\+T\+I\+M\+E\+R\+\_\+,T\+I\+M\+I\+N\+G\+\_\+\+T\+I\+M\+E\+R,\+\_\+\+V\+E\+C\+T\+O\+R)}\label{group__timing_ga491b3c671593195125fc8c5390dc663b}
+
+\item 
+\hypertarget{group__timing_gae606786fc810eb3e893b81685ed9175e}{\#define {\bfseries T\+I\+M\+I\+N\+G\+\_\+\+I\+N\+T\+E\+R\+R\+U\+P\+T}~C\+A\+T3(\+\_\+\+T,T\+I\+M\+I\+N\+G\+\_\+\+T\+I\+M\+E\+R,Interrupt)}\label{group__timing_gae606786fc810eb3e893b81685ed9175e}
+
+\item 
+\hypertarget{group__timing_gad6e9c4cab12b06864c5162252ca67014}{\#define \hyperlink{group__timing_gad6e9c4cab12b06864c5162252ca67014}{T\+I\+M\+E\+R\+\_\+\+P\+E\+R\+I\+O\+D\+\_\+\+M\+S}~(F\+C\+Y/1000/T\+I\+M\+I\+N\+G\+\_\+\+P\+R\+E\+S\+C\+A\+L\+E)}\label{group__timing_gad6e9c4cab12b06864c5162252ca67014}
+
+\begin{DoxyCompactList}\small\item\em Timing period for one millisecond, 1\+:1 prescale. \end{DoxyCompactList}\item 
+\hypertarget{group__timing_ga0540485394df82add6b7c4f2137c7f21}{\#define \hyperlink{group__timing_ga0540485394df82add6b7c4f2137c7f21}{T\+I\+M\+E\+\_\+\+M\+A\+X}~0x\+F\+F\+F\+F\+F\+F\+F\+F}\label{group__timing_ga0540485394df82add6b7c4f2137c7f21}
+
+\begin{DoxyCompactList}\small\item\em max time for system time \end{DoxyCompactList}\item 
+\hypertarget{group__timing_gaef97c9386393beb1be4ed0b1513ee481}{\#define \hyperlink{group__timing_gaef97c9386393beb1be4ed0b1513ee481}{tint\+\_\+t}~uint32\+\_\+t}\label{group__timing_gaef97c9386393beb1be4ed0b1513ee481}
+
+\begin{DoxyCompactList}\small\item\em type for timer, change this to uint16\+\_\+t for better efficiency on a 8 or 16 bit system. \end{DoxyCompactList}\item 
+\hypertarget{group__timing_ga51a3c365b49c844dad08a14204198b75}{\#define {\bfseries Timer\+Init}()~\hyperlink{group__timing_ga708280b92693de1cda94095470fbaad8}{Timing\+Init}()}\label{group__timing_ga51a3c365b49c844dad08a14204198b75}
+
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{group__timing_ga708280b92693de1cda94095470fbaad8}{void \hyperlink{group__timing_ga708280b92693de1cda94095470fbaad8}{Timing\+Init} (void)}\label{group__timing_ga708280b92693de1cda94095470fbaad8}
+
+\begin{DoxyCompactList}\small\item\em Initialize the timer to use and reset the system time to zero. \end{DoxyCompactList}\item 
+void \hyperlink{group__timing_ga5a4bf9e6351a738abf338ceabdf4a095}{Delay\+Ms} (\hyperlink{group__timing_gaef97c9386393beb1be4ed0b1513ee481}{tint\+\_\+t} delay)
+\begin{DoxyCompactList}\small\item\em Delay a specific number of milliseconds. \end{DoxyCompactList}\item 
+\hypertarget{group__timing_gad640aaef011a34ca9517509417a338ce}{void {\bfseries Delay\+Sec} (uint16\+\_\+t delay)}\label{group__timing_gad640aaef011a34ca9517509417a338ce}
+
+\item 
+\hypertarget{group__timing_ga26fe4b60a7c29dabdb7875c72dad884e}{void {\bfseries Delay\+Min} (uint16\+\_\+t delay)}\label{group__timing_ga26fe4b60a7c29dabdb7875c72dad884e}
+
+\item 
+\hypertarget{group__timing_ga388d909757f8c758432348356dddc14a}{void {\bfseries Delay\+Hr} (uint16\+\_\+t delay)}\label{group__timing_ga388d909757f8c758432348356dddc14a}
+
+\item 
+\hyperlink{group__timing_gaef97c9386393beb1be4ed0b1513ee481}{tint\+\_\+t} \hyperlink{group__timing_ga32e3bcf2162e557d8db29577c4bd8d40}{Time\+Since} (\hyperlink{group__timing_gaef97c9386393beb1be4ed0b1513ee481}{tint\+\_\+t} time)
+\begin{DoxyCompactList}\small\item\em Calculate the time since the given time. \end{DoxyCompactList}\item 
+\hypertarget{group__timing_gab437f5fda0049cdb6d747253a894ab2a}{uint32\+\_\+t {\bfseries Time\+Since\+Sec} (\hyperlink{group__timing_gaef97c9386393beb1be4ed0b1513ee481}{tint\+\_\+t} time)}\label{group__timing_gab437f5fda0049cdb6d747253a894ab2a}
+
+\item 
+\hypertarget{group__timing_ga189fc21a0fca971ae54f5198d73fcb25}{uint32\+\_\+t {\bfseries Time\+Since\+Min} (\hyperlink{group__timing_gaef97c9386393beb1be4ed0b1513ee481}{tint\+\_\+t} time)}\label{group__timing_ga189fc21a0fca971ae54f5198d73fcb25}
+
+\item 
+\hypertarget{group__timing_ga8db5207a515a882a94b267707fb7ac2c}{uint16\+\_\+t {\bfseries Time\+Since\+Hr} (\hyperlink{group__timing_gaef97c9386393beb1be4ed0b1513ee481}{tint\+\_\+t} time)}\label{group__timing_ga8db5207a515a882a94b267707fb7ac2c}
+
+\item 
+\hypertarget{group__timing_gacd020d43c37333a0e1bf99be28a29fa0}{\hyperlink{structtimestruct__t}{timestruct\+\_\+t} {\bfseries Time\+Since\+F} (\hyperlink{group__timing_gaef97c9386393beb1be4ed0b1513ee481}{tint\+\_\+t} time)}\label{group__timing_gacd020d43c37333a0e1bf99be28a29fa0}
+
+\item 
+\hyperlink{group__timing_gaef97c9386393beb1be4ed0b1513ee481}{tint\+\_\+t} \hyperlink{group__timing_ga73cbb4be98d4067316fa48f157e0ef2f}{Time\+Now} (void)
+\begin{DoxyCompactList}\small\item\em Returns the current system time in milliseconds. \end{DoxyCompactList}\item 
+\hypertarget{group__timing_ga1fbe4cdebab2c3592d94249561063405}{\hyperlink{group__timing_gaef97c9386393beb1be4ed0b1513ee481}{tint\+\_\+t} {\bfseries Time\+Now\+Sec} (void)}\label{group__timing_ga1fbe4cdebab2c3592d94249561063405}
+
+\item 
+\hypertarget{group__timing_ga6b725af1d301e0908b8d1393cf3a9eee}{\hyperlink{group__timing_gaef97c9386393beb1be4ed0b1513ee481}{tint\+\_\+t} {\bfseries Time\+Now\+Min} (void)}\label{group__timing_ga6b725af1d301e0908b8d1393cf3a9eee}
+
+\item 
+\hypertarget{group__timing_ga7ed570e908dd2cd3b6dc0dc229dc9372}{uint16\+\_\+t {\bfseries Time\+Now\+Hr} (void)}\label{group__timing_ga7ed570e908dd2cd3b6dc0dc229dc9372}
+
+\item 
+\hypertarget{group__timing_ga60c20e841fd1c126d3cda1449db3c326}{\hyperlink{structtimestruct__t}{timestruct\+\_\+t} {\bfseries Time\+Now\+F} (void)}\label{group__timing_ga60c20e841fd1c126d3cda1449db3c326}
+
+\item 
+void \hyperlink{group__timing_gab61c3ffd478e8b15714ee4be66e85a09}{Timer\+Roll} (void)
+\begin{DoxyCompactList}\small\item\em Reset the system time. \end{DoxyCompactList}\item 
+void \hyperlink{group__timing_gaf6f9921359372f1e809b7a67e153c4e2}{Timer\+Period} (uint16\+\_\+t period)
+\begin{DoxyCompactList}\small\item\em Set the period of the system timer. \end{DoxyCompactList}\end{DoxyCompactItemize}

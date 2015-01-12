@@ -1,0 +1,714 @@
+\hypertarget{group__task}{\section{Task Management Module}
+\label{group__task}\index{Task Management Module@{Task Management Module}}
+}
+
+
+The Task Management Module implements a task queue and a task schedule.  
+
+
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group__task_ga9a4bac1b8cbff5bb6fdbcbbf7d4bbb1d}{M\+A\+X\+\_\+\+T\+A\+S\+K\+\_\+\+L\+E\+N\+G\+T\+H}~20
+\begin{DoxyCompactList}\small\item\em Flag to enable logging module. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__task_gafdc2d62fe9a4cfe15bef8ac978e4c120}{T\+A\+S\+K\+\_\+\+D\+O\+N\+E}~-\/1
+\begin{DoxyCompactList}\small\item\em named priority levels, priority levels can exceed those defined if needed \end{DoxyCompactList}\item 
+\hypertarget{group__task_gaa87a8858165659a9b2805e8d2ade16f5}{\#define {\bfseries T\+A\+S\+K\+\_\+\+N\+O\+\_\+\+P\+R\+I\+O\+R\+I\+T\+Y}~0}\label{group__task_gaa87a8858165659a9b2805e8d2ade16f5}
+
+\item 
+\hypertarget{group__task_ga3d13725c3632a0bb4715b86912e0df58}{\#define {\bfseries T\+A\+S\+K\+\_\+\+L\+O\+W\+E\+S\+T\+\_\+\+P\+R\+I\+O\+R\+I\+T\+Y}~1}\label{group__task_ga3d13725c3632a0bb4715b86912e0df58}
+
+\item 
+\hypertarget{group__task_gaa4aa390d23e3f1d294f685b1802f03cc}{\#define {\bfseries T\+A\+S\+K\+\_\+\+L\+O\+W\+E\+R\+\_\+\+P\+R\+I\+O\+R\+I\+T\+Y}~2}\label{group__task_gaa4aa390d23e3f1d294f685b1802f03cc}
+
+\item 
+\hypertarget{group__task_ga4ac150047c387d7509e1afa4c843c7bb}{\#define {\bfseries T\+A\+S\+K\+\_\+\+L\+O\+W\+\_\+\+P\+R\+I\+O\+R\+I\+T\+Y}~3}\label{group__task_ga4ac150047c387d7509e1afa4c843c7bb}
+
+\item 
+\hypertarget{group__task_gad392367bc7666b7a60026cbbecfe95b0}{\#define {\bfseries T\+A\+S\+K\+\_\+\+M\+E\+D\+I\+U\+M\+\_\+\+P\+R\+I\+O\+R\+I\+T\+Y}~4}\label{group__task_gad392367bc7666b7a60026cbbecfe95b0}
+
+\item 
+\hypertarget{group__task_gae54c48fb126dde96cb1d3b16e892a887}{\#define {\bfseries T\+A\+S\+K\+\_\+\+H\+I\+G\+H\+\_\+\+P\+R\+I\+O\+R\+I\+T\+Y}~5}\label{group__task_gae54c48fb126dde96cb1d3b16e892a887}
+
+\item 
+\hypertarget{group__task_gaf6dd0020d0012ef5d7c5733c16c4106c}{\#define {\bfseries T\+A\+S\+K\+\_\+\+H\+I\+G\+H\+E\+R\+\_\+\+P\+R\+I\+O\+R\+I\+T\+Y}~6}\label{group__task_gaf6dd0020d0012ef5d7c5733c16c4106c}
+
+\item 
+\hypertarget{group__task_gae88a6bfaed2d8a80136804a8b0ac326a}{\#define {\bfseries T\+A\+S\+K\+\_\+\+H\+I\+G\+H\+E\+S\+T\+\_\+\+P\+R\+I\+O\+R\+I\+T\+Y}~7}\label{group__task_gae88a6bfaed2d8a80136804a8b0ac326a}
+
+\item 
+\#define \hyperlink{group__task_gaa96ae0d55ded50eac007bcd86332da47}{T\+A\+S\+K\+\_\+\+B\+U\+M\+P\+\_\+\+P\+R\+I\+O\+R\+I\+T\+Y\+\_\+\+T\+I\+M\+E}~500
+\begin{DoxyCompactList}\small\item\em Opional feature to increase the priority level of tasks that have been in the task queue for too long. \end{DoxyCompactList}\item 
+\hypertarget{group__task_gab6938b93bb3199ca2f558dc2732796a4}{\#define {\bfseries S\+E\+R\+V\+I\+C\+E\+\_\+\+T\+A\+S\+K\+S\+\_\+\+P\+E\+R\+I\+O\+D}~100}\label{group__task_gab6938b93bb3199ca2f558dc2732796a4}
+
+\item 
+\hypertarget{group__task_ga0eb80432a5c1dfa93816729659c0e6bd}{\#define {\bfseries C\+H\+E\+C\+K\+\_\+\+P\+E\+R\+M\+\_\+\+T\+A\+S\+K\+S\+\_\+\+P\+E\+R\+I\+O\+D}~1000}\label{group__task_ga0eb80432a5c1dfa93816729659c0e6bd}
+
+\item 
+\hypertarget{group__task_ga92b3099e50f63f0f06119e71a5ff2bab}{\#define {\bfseries Reset}()~\{\+\_\+\+\_\+asm\+\_\+\+\_\+ volatile (\char`\"{}reset\char`\"{});\}}\label{group__task_ga92b3099e50f63f0f06119e71a5ff2bab}
+
+\item 
+\hypertarget{group__task_ga2a42220c4bdacd910f07473ff74f9b46}{\#define {\bfseries Disable\+Interrupts}()~S\+Rbits.\+I\+P\+L; S\+Rbits.\+I\+P\+L = 7}\label{group__task_ga2a42220c4bdacd910f07473ff74f9b46}
+
+\item 
+\hypertarget{group__task_ga69ec92fe0ab4fb37b89f4c12b2a32a46}{\#define {\bfseries Enable\+Interrupts}(x)~S\+Rbits.\+I\+P\+L = x;}\label{group__task_ga69ec92fe0ab4fb37b89f4c12b2a32a46}
+
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{group__task_ga9e45f9614898df9d3f9ce6125a51cd76}{Task\+Init} (void)
+\begin{DoxyCompactList}\small\item\em Initialize Task Management Module. \end{DoxyCompactList}\item 
+void \hyperlink{group__task_gac7895d51adab1e77f320e387b28a58e6}{Task\+Shutdown} (void)
+\begin{DoxyCompactList}\small\item\em Shutdown Task Managment Module. \end{DoxyCompactList}\item 
+void \hyperlink{group__task_gaf8e57408c18da97569bf0faab543c71c}{Terminate\+All\+Tasks} (void)
+\begin{DoxyCompactList}\small\item\em Terminates Current Queue of tasks. \end{DoxyCompactList}\item 
+void \hyperlink{group__task_ga8199744ecf98f4adfc5c132b82f7bca0}{Task\+Queue\+Add} (void($\ast$fn)(void), int16\+\_\+t priority)
+\begin{DoxyCompactList}\small\item\em Adds a function to the task queue. \end{DoxyCompactList}\item 
+void \hyperlink{group__task_gaa4809ac3424d1e4e2e57718b596b4ae5}{Task\+Input\+Queue\+Add} (void($\ast$fn)(void $\ast$), void $\ast$input, int16\+\_\+t priority)
+\begin{DoxyCompactList}\small\item\em Add a function to the task queue. \end{DoxyCompactList}\item 
+void \hyperlink{group__task_gaf9635b62e4d6c222224ee274e9ae89f7}{Task\+Schedule\+Add\+Count} (void($\ast$fn)(void), int16\+\_\+t priority, \hyperlink{group__timing_gaef97c9386393beb1be4ed0b1513ee481}{tint\+\_\+t} delay, \hyperlink{group__timing_gaef97c9386393beb1be4ed0b1513ee481}{tint\+\_\+t} period, int16\+\_\+t count)
+\begin{DoxyCompactList}\small\item\em Adds task to be scheduled for execution. \end{DoxyCompactList}\item 
+void \hyperlink{group__task_gaf1cb027203da6b3f7d397601e2432570}{Task\+Input\+Schedule\+Add\+Count} (void($\ast$fn)(void $\ast$), void $\ast$input, int16\+\_\+t priority, \hyperlink{group__timing_gaef97c9386393beb1be4ed0b1513ee481}{tint\+\_\+t} delay, \hyperlink{group__timing_gaef97c9386393beb1be4ed0b1513ee481}{tint\+\_\+t} period, int16\+\_\+t count)
+\begin{DoxyCompactList}\small\item\em Add a function with an input to the task manager. \end{DoxyCompactList}\item 
+void \hyperlink{group__task_ga0325ea2e7cf4b65adade783e27cbb58e}{Task\+Schedule\+Add} (void($\ast$fn)(void), int16\+\_\+t priority, \hyperlink{group__timing_gaef97c9386393beb1be4ed0b1513ee481}{tint\+\_\+t} delay, \hyperlink{group__timing_gaef97c9386393beb1be4ed0b1513ee481}{tint\+\_\+t} period)
+\begin{DoxyCompactList}\small\item\em Adds task to be scheduled for execution (with implied infinite scheduling if period is defined\+: count = 1) \end{DoxyCompactList}\item 
+void \hyperlink{group__task_gade79a52a993e85b28a675990b3924b3d}{Task\+Input\+Schedule\+Add} (void($\ast$fn)(void $\ast$), void $\ast$input, int16\+\_\+t priority, \hyperlink{group__timing_gaef97c9386393beb1be4ed0b1513ee481}{tint\+\_\+t} delay, \hyperlink{group__timing_gaef97c9386393beb1be4ed0b1513ee481}{tint\+\_\+t} period)
+\begin{DoxyCompactList}\small\item\em Add a function with an input to the task manager. \end{DoxyCompactList}\item 
+void \hyperlink{group__task_ga8a9f252e20c11f74987e497fe761e805}{Task\+Re\+Schedule} (void($\ast$fn)(void), int16\+\_\+t priority, \hyperlink{group__timing_gaef97c9386393beb1be4ed0b1513ee481}{tint\+\_\+t} delay, \hyperlink{group__timing_gaef97c9386393beb1be4ed0b1513ee481}{tint\+\_\+t} period)
+\begin{DoxyCompactList}\small\item\em reschedule a existing task or add the task to the schedule if it exists \end{DoxyCompactList}\item 
+void \hyperlink{group__task_gac35d5fcf1636888d67f3360ee86fd6e0}{Task\+Input\+Re\+Schedule} (void($\ast$fn)(void $\ast$), void $\ast$input, int16\+\_\+t priority, \hyperlink{group__timing_gaef97c9386393beb1be4ed0b1513ee481}{tint\+\_\+t} delay, \hyperlink{group__timing_gaef97c9386393beb1be4ed0b1513ee481}{tint\+\_\+t} period)
+\begin{DoxyCompactList}\small\item\em Reschedule a task that accepts an input. \end{DoxyCompactList}\item 
+void \hyperlink{group__task_ga0cbcc7b4d487bea97c9feb7bb055745b}{Remove\+Task} (void($\ast$fn)(void))
+\begin{DoxyCompactList}\small\item\em Removes Task. \end{DoxyCompactList}\item 
+void \hyperlink{group__task_gae4ce82ae143ae0fdd183523bbd84422b}{Remove\+Task\+Input} (void($\ast$fn)(void $\ast$), void $\ast$input)
+\begin{DoxyCompactList}\small\item\em Remove task that accepts an input from the task manager. \end{DoxyCompactList}\item 
+void \hyperlink{group__task_ga65d31962fc809566ad27a3b2ce67b3fa}{Remove\+Task\+From\+Queue} (void($\ast$fn)(void))
+\begin{DoxyCompactList}\small\item\em Removes Task From Queue. \end{DoxyCompactList}\item 
+void \hyperlink{group__task_gaccc37b8ee3d3b7956e66d7c175d2fe5d}{Remove\+Task\+Input\+From\+Queue} (void($\ast$fn)(void $\ast$), void $\ast$input)
+\begin{DoxyCompactList}\small\item\em Remove task that accepts an input from the queue. \end{DoxyCompactList}\item 
+void \hyperlink{group__task_gafa9b5425e993bac4e5aa130daf3ceea7}{Remove\+Task\+From\+Schedule} (void($\ast$fn)(void))
+\begin{DoxyCompactList}\small\item\em Removes Task From Schedule. \end{DoxyCompactList}\item 
+void \hyperlink{group__task_ga78192a3385820da2cc4679cd51303ae7}{Remove\+Task\+Input\+From\+Schedule} (void($\ast$fn)(void $\ast$), void $\ast$input)
+\begin{DoxyCompactList}\small\item\em Remove function that accepts input from schedule. \end{DoxyCompactList}\item 
+void \hyperlink{group__task_gaea62f111e9b59543d729ea330be9d549}{Change\+Priority} (void($\ast$fn)(void), int16\+\_\+t priority)
+\begin{DoxyCompactList}\small\item\em Change Task's Priority. \end{DoxyCompactList}\item 
+void \hyperlink{group__task_ga5bca6f47562aef3d28a6c598c1bb8bf9}{Change\+Priority\+Input} (void($\ast$fn)(void $\ast$), void $\ast$input, int16\+\_\+t priority)
+\begin{DoxyCompactList}\small\item\em Change the priority of a function with an input. \end{DoxyCompactList}\item 
+void \hyperlink{group__task_gafd2aa563748d1ede229e5867753ead5d}{System\+Tick} (void)
+\begin{DoxyCompactList}\small\item\em Run the first task in the task queue and check if any tasks are due to run in the schedule. \end{DoxyCompactList}\item 
+void \hyperlink{group__task_gabd957ea17a03ba5e10e18fd2821f1a7b}{Roll\+Timer} (void)
+\begin{DoxyCompactList}\small\item\em Rolls the task management timer. \end{DoxyCompactList}\item 
+void \hyperlink{group__task_ga51a214a49e3bca310762452c27c47c90}{Wait\+Ms} (\hyperlink{group__timing_gaef97c9386393beb1be4ed0b1513ee481}{tint\+\_\+t} wait)
+\begin{DoxyCompactList}\small\item\em Wait a set number of milliseconds and run queued or shceduled tasks while waiting. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{group__task_gaee42fba49f1e2560a2fb3d2debb6eab9}{Is\+Task\+Scheduled} (void($\ast$fn)(void))
+\begin{DoxyCompactList}\small\item\em Checks if a task is scheduled or queued. \end{DoxyCompactList}\item 
+\hypertarget{group__task_ga45595ba3616f0bd93fc5ba84a68f3623}{uint8\+\_\+t {\bfseries Is\+Task\+Input\+Scheduled} (void($\ast$fn)(void $\ast$), void $\ast$input)}\label{group__task_ga45595ba3616f0bd93fc5ba84a68f3623}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The Task Management Module implements a task queue and a task schedule. 
+
+The task queue is a double linked list of tasks in order of their priority. If two tasks have the same priority then the task added to the queue first will be ahead of the other task. Each time \hyperlink{group__task_gafd2aa563748d1ede229e5867753ead5d}{System\+Tick()} is called the first task in the queue will execute. If the task is periodic it will be added back to the task schedule once it is ran.
+
+The task schedule is a double linked list of tasks in order of when they are scheduled to run. If two tasks are scheduled for the same time the one with the higher priority will run first. Each task scheduled has a timestamp which indicates when it should run as well as a period for how long after that time until it runs again. When \hyperlink{group__task_gafd2aa563748d1ede229e5867753ead5d}{System\+Tick()} is called it will check to if any scheduled tasks are due to run and add them to the task queue when they are due.
+
+\begin{DoxyVersion}{Version}
+10/4/2012 Remove functions were not interrupt safe -\/$>$ Fixed
+
+2/18/2014 Fixed bug in linking multiple tasks at once and/or scheduling multiple tasks at once. Added extra checks to ensure task index is in range every time the task array is accessed.
+
+3/26/2014 Added compatibility with Tiva C and M\+S\+P430. Moved processor specific defines from .c file to the end of the .h file. Changed a uint16\+\_\+t to int16\+\_\+t in \hyperlink{group__task_gaee42fba49f1e2560a2fb3d2debb6eab9}{Is\+Task\+Scheduled()}. Also removed some unreachable code
+\end{DoxyVersion}
+\begin{DoxyWarning}{Warning}
+on M\+S\+P430 or Tiva C if interrupts are disabled calling \hyperlink{group__task_ga8199744ecf98f4adfc5c132b82f7bca0}{Task\+Queue\+Add()} or \hyperlink{group__task_ga0325ea2e7cf4b65adade783e27cbb58e}{Task\+Schedule\+Add()} will \char`\"{}disable\char`\"{} then enable interrupts thus changing the state. Consider updating code to handle this case. 
+\end{DoxyWarning}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{group__task_ga9a4bac1b8cbff5bb6fdbcbbf7d4bbb1d}{\index{Task Management Module@{Task Management Module}!M\+A\+X\+\_\+\+T\+A\+S\+K\+\_\+\+L\+E\+N\+G\+T\+H@{M\+A\+X\+\_\+\+T\+A\+S\+K\+\_\+\+L\+E\+N\+G\+T\+H}}
+\index{M\+A\+X\+\_\+\+T\+A\+S\+K\+\_\+\+L\+E\+N\+G\+T\+H@{M\+A\+X\+\_\+\+T\+A\+S\+K\+\_\+\+L\+E\+N\+G\+T\+H}!Task Management Module@{Task Management Module}}
+\subsubsection[{M\+A\+X\+\_\+\+T\+A\+S\+K\+\_\+\+L\+E\+N\+G\+T\+H}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+A\+X\+\_\+\+T\+A\+S\+K\+\_\+\+L\+E\+N\+G\+T\+H~20}}\label{group__task_ga9a4bac1b8cbff5bb6fdbcbbf7d4bbb1d}
+
+
+Flag to enable logging module. 
+
+The number of tasks that can be added to the task queue or task schedule
+
+Note\+: the task queue and task schedule use the same array of tasks in implementing the two double linked lists. If the array becomes full the module will either drop the lowest priority task in the queue or the task that is to be added, whichever has the lowest priority. \hypertarget{group__task_gaa96ae0d55ded50eac007bcd86332da47}{\index{Task Management Module@{Task Management Module}!T\+A\+S\+K\+\_\+\+B\+U\+M\+P\+\_\+\+P\+R\+I\+O\+R\+I\+T\+Y\+\_\+\+T\+I\+M\+E@{T\+A\+S\+K\+\_\+\+B\+U\+M\+P\+\_\+\+P\+R\+I\+O\+R\+I\+T\+Y\+\_\+\+T\+I\+M\+E}}
+\index{T\+A\+S\+K\+\_\+\+B\+U\+M\+P\+\_\+\+P\+R\+I\+O\+R\+I\+T\+Y\+\_\+\+T\+I\+M\+E@{T\+A\+S\+K\+\_\+\+B\+U\+M\+P\+\_\+\+P\+R\+I\+O\+R\+I\+T\+Y\+\_\+\+T\+I\+M\+E}!Task Management Module@{Task Management Module}}
+\subsubsection[{T\+A\+S\+K\+\_\+\+B\+U\+M\+P\+\_\+\+P\+R\+I\+O\+R\+I\+T\+Y\+\_\+\+T\+I\+M\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+A\+S\+K\+\_\+\+B\+U\+M\+P\+\_\+\+P\+R\+I\+O\+R\+I\+T\+Y\+\_\+\+T\+I\+M\+E~500}}\label{group__task_gaa96ae0d55ded50eac007bcd86332da47}
+
+
+Opional feature to increase the priority level of tasks that have been in the task queue for too long. 
+
+If set the tasks priority level will be incremented every T\+A\+S\+K\+\_\+\+B\+U\+M\+P\+\_\+\+P\+R\+I\+O\+R\+I\+T\+Y\+\_\+\+T\+I\+M\+E ms. \hypertarget{group__task_gafdc2d62fe9a4cfe15bef8ac978e4c120}{\index{Task Management Module@{Task Management Module}!T\+A\+S\+K\+\_\+\+D\+O\+N\+E@{T\+A\+S\+K\+\_\+\+D\+O\+N\+E}}
+\index{T\+A\+S\+K\+\_\+\+D\+O\+N\+E@{T\+A\+S\+K\+\_\+\+D\+O\+N\+E}!Task Management Module@{Task Management Module}}
+\subsubsection[{T\+A\+S\+K\+\_\+\+D\+O\+N\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+A\+S\+K\+\_\+\+D\+O\+N\+E~-\/1}}\label{group__task_gafdc2d62fe9a4cfe15bef8ac978e4c120}
+
+
+named priority levels, priority levels can exceed those defined if needed 
+
+C\+A\+U\+T\+I\+O\+N\+: do not use 0x\+F\+F\+F\+F (-\/1) as a priority value, this value is reserved to indicate when a task is not used. 
+
+\subsection{Function Documentation}
+\hypertarget{group__task_gaea62f111e9b59543d729ea330be9d549}{\index{Task Management Module@{Task Management Module}!Change\+Priority@{Change\+Priority}}
+\index{Change\+Priority@{Change\+Priority}!Task Management Module@{Task Management Module}}
+\subsubsection[{Change\+Priority}]{\setlength{\rightskip}{0pt plus 5cm}void Change\+Priority (
+\begin{DoxyParamCaption}
+\item[{void($\ast$)(void)}]{fn, }
+\item[{int16\+\_\+t}]{priority}
+\end{DoxyParamCaption}
+)}}\label{group__task_gaea62f111e9b59543d729ea330be9d549}
+
+
+Change Task's Priority. 
+
+\hyperlink{group__task_gaea62f111e9b59543d729ea330be9d549}{Change\+Priority()} changes a specific task's priority to the specified level.
+
+Note\+: if two tasks in the queue or schedule have the same function pointer then both tasks will have their priority value changed
+
+\begin{DoxyAuthor}{Author}
+Aaron Johnson 
+
+David Calhoun 
+
+Tony Samaritano
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em fn} & Task whose priority is to be changed \\
+\hline
+{\em priority} & New priority level \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__task_ga5bca6f47562aef3d28a6c598c1bb8bf9}{\index{Task Management Module@{Task Management Module}!Change\+Priority\+Input@{Change\+Priority\+Input}}
+\index{Change\+Priority\+Input@{Change\+Priority\+Input}!Task Management Module@{Task Management Module}}
+\subsubsection[{Change\+Priority\+Input}]{\setlength{\rightskip}{0pt plus 5cm}void Change\+Priority\+Input (
+\begin{DoxyParamCaption}
+\item[{void($\ast$)(void $\ast$)}]{fn, }
+\item[{void $\ast$}]{input, }
+\item[{int16\+\_\+t}]{priority}
+\end{DoxyParamCaption}
+)}}\label{group__task_ga5bca6f47562aef3d28a6c598c1bb8bf9}
+
+
+Change the priority of a function with an input. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fn} & Pointer to function \\
+\hline
+{\em input} & Pointer to function's input \\
+\hline
+{\em priority} & New priority of function \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__task_gaee42fba49f1e2560a2fb3d2debb6eab9}{\index{Task Management Module@{Task Management Module}!Is\+Task\+Scheduled@{Is\+Task\+Scheduled}}
+\index{Is\+Task\+Scheduled@{Is\+Task\+Scheduled}!Task Management Module@{Task Management Module}}
+\subsubsection[{Is\+Task\+Scheduled}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t Is\+Task\+Scheduled (
+\begin{DoxyParamCaption}
+\item[{void($\ast$)(void)}]{fn}
+\end{DoxyParamCaption}
+)}}\label{group__task_gaee42fba49f1e2560a2fb3d2debb6eab9}
+
+
+Checks if a task is scheduled or queued. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fn} & function to look for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if task is scheduled or queued, 0 if not 
+\end{DoxyReturn}
+\hypertarget{group__task_ga0cbcc7b4d487bea97c9feb7bb055745b}{\index{Task Management Module@{Task Management Module}!Remove\+Task@{Remove\+Task}}
+\index{Remove\+Task@{Remove\+Task}!Task Management Module@{Task Management Module}}
+\subsubsection[{Remove\+Task}]{\setlength{\rightskip}{0pt plus 5cm}void Remove\+Task (
+\begin{DoxyParamCaption}
+\item[{void($\ast$)(void)}]{fn}
+\end{DoxyParamCaption}
+)}}\label{group__task_ga0cbcc7b4d487bea97c9feb7bb055745b}
+
+
+Removes Task. 
+
+\hyperlink{group__task_ga0cbcc7b4d487bea97c9feb7bb055745b}{Remove\+Task()} loops through the entire task management queue and schedual to remove that task from the task management system.
+
+\begin{DoxyAuthor}{Author}
+Aaron Johnson 
+
+David Calhoun 
+
+Tony Samaritano
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em fn} & The task (function) to be removed \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__task_ga65d31962fc809566ad27a3b2ce67b3fa}{\index{Task Management Module@{Task Management Module}!Remove\+Task\+From\+Queue@{Remove\+Task\+From\+Queue}}
+\index{Remove\+Task\+From\+Queue@{Remove\+Task\+From\+Queue}!Task Management Module@{Task Management Module}}
+\subsubsection[{Remove\+Task\+From\+Queue}]{\setlength{\rightskip}{0pt plus 5cm}void Remove\+Task\+From\+Queue (
+\begin{DoxyParamCaption}
+\item[{void($\ast$)(void)}]{fn}
+\end{DoxyParamCaption}
+)}}\label{group__task_ga65d31962fc809566ad27a3b2ce67b3fa}
+
+
+Removes Task From Queue. 
+
+\hyperlink{group__task_ga65d31962fc809566ad27a3b2ce67b3fa}{Remove\+Task\+From\+Queue()} removes a specific task from the queue.
+
+\begin{DoxyAuthor}{Author}
+Aaron Johnson 
+
+David Calhoun 
+
+Tony Samaritano 
+
+Michael Muhlbaier
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em fn} & The task (function) to be removed \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__task_gafa9b5425e993bac4e5aa130daf3ceea7}{\index{Task Management Module@{Task Management Module}!Remove\+Task\+From\+Schedule@{Remove\+Task\+From\+Schedule}}
+\index{Remove\+Task\+From\+Schedule@{Remove\+Task\+From\+Schedule}!Task Management Module@{Task Management Module}}
+\subsubsection[{Remove\+Task\+From\+Schedule}]{\setlength{\rightskip}{0pt plus 5cm}void Remove\+Task\+From\+Schedule (
+\begin{DoxyParamCaption}
+\item[{void($\ast$)(void)}]{fn}
+\end{DoxyParamCaption}
+)}}\label{group__task_gafa9b5425e993bac4e5aa130daf3ceea7}
+
+
+Removes Task From Schedule. 
+
+\hyperlink{group__task_gafa9b5425e993bac4e5aa130daf3ceea7}{Remove\+Task\+From\+Schedule()} removes a specific task from the schedule.
+
+
+\begin{DoxyParams}{Parameters}
+{\em fn} & The task (function) to be removed \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__task_gae4ce82ae143ae0fdd183523bbd84422b}{\index{Task Management Module@{Task Management Module}!Remove\+Task\+Input@{Remove\+Task\+Input}}
+\index{Remove\+Task\+Input@{Remove\+Task\+Input}!Task Management Module@{Task Management Module}}
+\subsubsection[{Remove\+Task\+Input}]{\setlength{\rightskip}{0pt plus 5cm}void Remove\+Task\+Input (
+\begin{DoxyParamCaption}
+\item[{void($\ast$)(void $\ast$)}]{fn, }
+\item[{void $\ast$}]{input}
+\end{DoxyParamCaption}
+)}}\label{group__task_gae4ce82ae143ae0fdd183523bbd84422b}
+
+
+Remove task that accepts an input from the task manager. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fn} & Pointer to function \\
+\hline
+{\em input} & Pointer to function's input \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__task_gaccc37b8ee3d3b7956e66d7c175d2fe5d}{\index{Task Management Module@{Task Management Module}!Remove\+Task\+Input\+From\+Queue@{Remove\+Task\+Input\+From\+Queue}}
+\index{Remove\+Task\+Input\+From\+Queue@{Remove\+Task\+Input\+From\+Queue}!Task Management Module@{Task Management Module}}
+\subsubsection[{Remove\+Task\+Input\+From\+Queue}]{\setlength{\rightskip}{0pt plus 5cm}void Remove\+Task\+Input\+From\+Queue (
+\begin{DoxyParamCaption}
+\item[{void($\ast$)(void $\ast$)}]{fn, }
+\item[{void $\ast$}]{input}
+\end{DoxyParamCaption}
+)}}\label{group__task_gaccc37b8ee3d3b7956e66d7c175d2fe5d}
+
+
+Remove task that accepts an input from the queue. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fn} & Pointer to function \\
+\hline
+{\em input} & Pointer to input to the function \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__task_ga78192a3385820da2cc4679cd51303ae7}{\index{Task Management Module@{Task Management Module}!Remove\+Task\+Input\+From\+Schedule@{Remove\+Task\+Input\+From\+Schedule}}
+\index{Remove\+Task\+Input\+From\+Schedule@{Remove\+Task\+Input\+From\+Schedule}!Task Management Module@{Task Management Module}}
+\subsubsection[{Remove\+Task\+Input\+From\+Schedule}]{\setlength{\rightskip}{0pt plus 5cm}void Remove\+Task\+Input\+From\+Schedule (
+\begin{DoxyParamCaption}
+\item[{void($\ast$)(void $\ast$)}]{fn, }
+\item[{void $\ast$}]{input}
+\end{DoxyParamCaption}
+)}}\label{group__task_ga78192a3385820da2cc4679cd51303ae7}
+
+
+Remove function that accepts input from schedule. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fn} & Pointer to function \\
+\hline
+{\em input} & Pointer to input \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__task_gabd957ea17a03ba5e10e18fd2821f1a7b}{\index{Task Management Module@{Task Management Module}!Roll\+Timer@{Roll\+Timer}}
+\index{Roll\+Timer@{Roll\+Timer}!Task Management Module@{Task Management Module}}
+\subsubsection[{Roll\+Timer}]{\setlength{\rightskip}{0pt plus 5cm}void Roll\+Timer (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{group__task_gabd957ea17a03ba5e10e18fd2821f1a7b}
+
+
+Rolls the task management timer. 
+
+\hyperlink{group__task_gabd957ea17a03ba5e10e18fd2821f1a7b}{Roll\+Timer()} checks the time value for each task in the array and rolls the timer if any of the tasks are scheduled past the timer rollover point.
+
+Note\+: this function is not normally needed by the user as timer rollover is automatically handled by the module. Only use this function if you want to force the time to 0.
+
+\begin{DoxyAuthor}{Author}
+Tony Samaritano 
+
+Aaron Johnson 
+
+David Calhoun 
+\end{DoxyAuthor}
+\hypertarget{group__task_gafd2aa563748d1ede229e5867753ead5d}{\index{Task Management Module@{Task Management Module}!System\+Tick@{System\+Tick}}
+\index{System\+Tick@{System\+Tick}!Task Management Module@{Task Management Module}}
+\subsubsection[{System\+Tick}]{\setlength{\rightskip}{0pt plus 5cm}void System\+Tick (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{group__task_gafd2aa563748d1ede229e5867753ead5d}
+
+
+Run the first task in the task queue and check if any tasks are due to run in the schedule. 
+
+Run the first task in the task queue provided one exists. If the task ran has a period value then it will be moved to the task schedule instead of removed.
+
+Check if any of the scheduled tasks are due to run. If so move any tasks whose run time is at or before the current time to the task queue where they will be ordered by priority and executed accordingly. \hypertarget{group__task_ga9e45f9614898df9d3f9ce6125a51cd76}{\index{Task Management Module@{Task Management Module}!Task\+Init@{Task\+Init}}
+\index{Task\+Init@{Task\+Init}!Task Management Module@{Task Management Module}}
+\subsubsection[{Task\+Init}]{\setlength{\rightskip}{0pt plus 5cm}void Task\+Init (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{group__task_ga9e45f9614898df9d3f9ce6125a51cd76}
+
+
+Initialize Task Management Module. 
+
+Initializes the task management module for operation. \hypertarget{group__task_gaa4809ac3424d1e4e2e57718b596b4ae5}{\index{Task Management Module@{Task Management Module}!Task\+Input\+Queue\+Add@{Task\+Input\+Queue\+Add}}
+\index{Task\+Input\+Queue\+Add@{Task\+Input\+Queue\+Add}!Task Management Module@{Task Management Module}}
+\subsubsection[{Task\+Input\+Queue\+Add}]{\setlength{\rightskip}{0pt plus 5cm}void Task\+Input\+Queue\+Add (
+\begin{DoxyParamCaption}
+\item[{void($\ast$)(void $\ast$)}]{fn, }
+\item[{void $\ast$}]{input, }
+\item[{int16\+\_\+t}]{priority}
+\end{DoxyParamCaption}
+)}}\label{group__task_gaa4809ac3424d1e4e2e57718b596b4ae5}
+
+
+Add a function to the task queue. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fn} & Pointer to function to run \\
+\hline
+{\em input} & Pointer to function's input \\
+\hline
+{\em priority} & Priority of task \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__task_gac35d5fcf1636888d67f3360ee86fd6e0}{\index{Task Management Module@{Task Management Module}!Task\+Input\+Re\+Schedule@{Task\+Input\+Re\+Schedule}}
+\index{Task\+Input\+Re\+Schedule@{Task\+Input\+Re\+Schedule}!Task Management Module@{Task Management Module}}
+\subsubsection[{Task\+Input\+Re\+Schedule}]{\setlength{\rightskip}{0pt plus 5cm}void Task\+Input\+Re\+Schedule (
+\begin{DoxyParamCaption}
+\item[{void($\ast$)(void $\ast$)}]{fn, }
+\item[{void $\ast$}]{input, }
+\item[{int16\+\_\+t}]{priority, }
+\item[{{\bf tint\+\_\+t}}]{delay, }
+\item[{{\bf tint\+\_\+t}}]{period}
+\end{DoxyParamCaption}
+)}}\label{group__task_gac35d5fcf1636888d67f3360ee86fd6e0}
+
+
+Reschedule a task that accepts an input. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fn} & Pointer to function \\
+\hline
+{\em input} & Pointer to function's input \\
+\hline
+{\em priority} & Priority of function \\
+\hline
+{\em delay} & Delay before task is run \\
+\hline
+{\em period} & Period of how often the task is run \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__task_gade79a52a993e85b28a675990b3924b3d}{\index{Task Management Module@{Task Management Module}!Task\+Input\+Schedule\+Add@{Task\+Input\+Schedule\+Add}}
+\index{Task\+Input\+Schedule\+Add@{Task\+Input\+Schedule\+Add}!Task Management Module@{Task Management Module}}
+\subsubsection[{Task\+Input\+Schedule\+Add}]{\setlength{\rightskip}{0pt plus 5cm}void Task\+Input\+Schedule\+Add (
+\begin{DoxyParamCaption}
+\item[{void($\ast$)(void $\ast$)}]{fn, }
+\item[{void $\ast$}]{input, }
+\item[{int16\+\_\+t}]{priority, }
+\item[{{\bf tint\+\_\+t}}]{delay, }
+\item[{{\bf tint\+\_\+t}}]{period}
+\end{DoxyParamCaption}
+)}}\label{group__task_gade79a52a993e85b28a675990b3924b3d}
+
+
+Add a function with an input to the task manager. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fn} & Pointer to function to run \\
+\hline
+{\em input} & Pointer to function's input \\
+\hline
+{\em priority} & Priority of task \\
+\hline
+{\em delay} & Delay before task is run \\
+\hline
+{\em period} & Period of how often the task is run \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__task_gaf1cb027203da6b3f7d397601e2432570}{\index{Task Management Module@{Task Management Module}!Task\+Input\+Schedule\+Add\+Count@{Task\+Input\+Schedule\+Add\+Count}}
+\index{Task\+Input\+Schedule\+Add\+Count@{Task\+Input\+Schedule\+Add\+Count}!Task Management Module@{Task Management Module}}
+\subsubsection[{Task\+Input\+Schedule\+Add\+Count}]{\setlength{\rightskip}{0pt plus 5cm}void Task\+Input\+Schedule\+Add\+Count (
+\begin{DoxyParamCaption}
+\item[{void($\ast$)(void $\ast$)}]{fn, }
+\item[{void $\ast$}]{input, }
+\item[{int16\+\_\+t}]{priority, }
+\item[{{\bf tint\+\_\+t}}]{delay, }
+\item[{{\bf tint\+\_\+t}}]{period, }
+\item[{int16\+\_\+t}]{count}
+\end{DoxyParamCaption}
+)}}\label{group__task_gaf1cb027203da6b3f7d397601e2432570}
+
+
+Add a function with an input to the task manager. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fn} & Pointer to function to run \\
+\hline
+{\em input} & Pointer to function's input \\
+\hline
+{\em priority} & Priority of task \\
+\hline
+{\em delay} & Delay before task is run \\
+\hline
+{\em period} & Period of how often task is run \\
+\hline
+{\em count} & Number of times to be rescheduled \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__task_ga8199744ecf98f4adfc5c132b82f7bca0}{\index{Task Management Module@{Task Management Module}!Task\+Queue\+Add@{Task\+Queue\+Add}}
+\index{Task\+Queue\+Add@{Task\+Queue\+Add}!Task Management Module@{Task Management Module}}
+\subsubsection[{Task\+Queue\+Add}]{\setlength{\rightskip}{0pt plus 5cm}void Task\+Queue\+Add (
+\begin{DoxyParamCaption}
+\item[{void($\ast$)(void)}]{fn, }
+\item[{int16\+\_\+t}]{priority}
+\end{DoxyParamCaption}
+)}}\label{group__task_ga8199744ecf98f4adfc5c132b82f7bca0}
+
+
+Adds a function to the task queue. 
+
+\hyperlink{group__task_ga8199744ecf98f4adfc5c132b82f7bca0}{Task\+Queue\+Add()} adds a task to be run by the task mananagement system to the queue. Use this function to add the function to be run and the function's priority
+
+\begin{DoxyAuthor}{Author}
+David Calhoun 
+
+Tony Samaritano 
+
+Aaron Johnson 
+
+Michael Muhlbaier
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em fn} & Function Pointer -\/ must have no parameters and no return value. \\
+\hline
+{\em priority} & Tasks's priority -\/ higher value is higher priority \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__task_ga8a9f252e20c11f74987e497fe761e805}{\index{Task Management Module@{Task Management Module}!Task\+Re\+Schedule@{Task\+Re\+Schedule}}
+\index{Task\+Re\+Schedule@{Task\+Re\+Schedule}!Task Management Module@{Task Management Module}}
+\subsubsection[{Task\+Re\+Schedule}]{\setlength{\rightskip}{0pt plus 5cm}void Task\+Re\+Schedule (
+\begin{DoxyParamCaption}
+\item[{void($\ast$)(void)}]{fn, }
+\item[{int16\+\_\+t}]{priority, }
+\item[{{\bf tint\+\_\+t}}]{delay, }
+\item[{{\bf tint\+\_\+t}}]{period}
+\end{DoxyParamCaption}
+)}}\label{group__task_ga8a9f252e20c11f74987e497fe761e805}
+
+
+reschedule a existing task or add the task to the schedule if it exists 
+
+N\+O\+T I\+N\+T\+E\+R\+R\+U\+P\+T S\+A\+F\+E
+
+
+\begin{DoxyParams}{Parameters}
+{\em fn} & Function Pointer -\/ must have no parameters and no return value. \\
+\hline
+{\em priority} & Tasks's priority -\/ higher value is higher priority \\
+\hline
+{\em delay} & Delay before the task is first run \\
+\hline
+{\em period} & Period of how often the task is run \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__task_ga0325ea2e7cf4b65adade783e27cbb58e}{\index{Task Management Module@{Task Management Module}!Task\+Schedule\+Add@{Task\+Schedule\+Add}}
+\index{Task\+Schedule\+Add@{Task\+Schedule\+Add}!Task Management Module@{Task Management Module}}
+\subsubsection[{Task\+Schedule\+Add}]{\setlength{\rightskip}{0pt plus 5cm}void Task\+Schedule\+Add (
+\begin{DoxyParamCaption}
+\item[{void($\ast$)(void)}]{fn, }
+\item[{int16\+\_\+t}]{priority, }
+\item[{{\bf tint\+\_\+t}}]{delay, }
+\item[{{\bf tint\+\_\+t}}]{period}
+\end{DoxyParamCaption}
+)}}\label{group__task_ga0325ea2e7cf4b65adade783e27cbb58e}
+
+
+Adds task to be scheduled for execution (with implied infinite scheduling if period is defined\+: count = 1) 
+
+Note\+: tasks are not guaranteed to run at the exact time specified by delay and period. Timing will depend on how often \hyperlink{group__task_gafd2aa563748d1ede229e5867753ead5d}{System\+Tick()} is called and how high the priority of the task is relative to other tasks in the queue. In properly designed systems \hyperlink{group__task_gafd2aa563748d1ede229e5867753ead5d}{System\+Tick()} should be called frequently enough to keep the number of tasks in the queue low so scheduled tasks are run on time.
+
+\begin{DoxyAuthor}{Author}
+Aaron Johnson 
+
+David Calhoun 
+
+Tony Samaritano 
+
+Ryan Lee 
+
+Michael Muhlbaier
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em fn} & Function Pointer -\/ must have no parameters and no return value. \\
+\hline
+{\em priority} & Tasks's priority -\/ higher value is higher priority \\
+\hline
+{\em delay} & Delay before the task is first run \\
+\hline
+{\em period} & Period of how often the task is run (0 no rescheduling) \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__task_gaf9635b62e4d6c222224ee274e9ae89f7}{\index{Task Management Module@{Task Management Module}!Task\+Schedule\+Add\+Count@{Task\+Schedule\+Add\+Count}}
+\index{Task\+Schedule\+Add\+Count@{Task\+Schedule\+Add\+Count}!Task Management Module@{Task Management Module}}
+\subsubsection[{Task\+Schedule\+Add\+Count}]{\setlength{\rightskip}{0pt plus 5cm}void Task\+Schedule\+Add\+Count (
+\begin{DoxyParamCaption}
+\item[{void($\ast$)(void)}]{fn, }
+\item[{int16\+\_\+t}]{priority, }
+\item[{{\bf tint\+\_\+t}}]{delay, }
+\item[{{\bf tint\+\_\+t}}]{period, }
+\item[{int16\+\_\+t}]{count}
+\end{DoxyParamCaption}
+)}}\label{group__task_gaf9635b62e4d6c222224ee274e9ae89f7}
+
+
+Adds task to be scheduled for execution. 
+
+This function adds task that are schedule for later time priority is ignore and tasks are order stictly by their time (F\+I\+F\+O) the timestamp should be determined based on (\hyperlink{group__timing_ga73cbb4be98d4067316fa48f157e0ef2f}{Time\+Now()} + delay) (modification) count is included to allow for diminishing scheduled tasks
+
+Note\+: tasks are not guaranteed to run at the exact time specified by delay and period. Timing will depend on how often \hyperlink{group__task_gafd2aa563748d1ede229e5867753ead5d}{System\+Tick()} is called and how high the priority of the task is relative to other tasks in the queue. In properly designed systems \hyperlink{group__task_gafd2aa563748d1ede229e5867753ead5d}{System\+Tick()} should be called frequently enough to keep the number of tasks in the queue low so scheduled tasks are run on time.
+
+\begin{DoxyAuthor}{Author}
+Aaron Johnson 
+
+David Calhoun 
+
+Tony Samaritano 
+
+Ryan Lee
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em fn} & Function Pointer -\/ must have no parameters and no return value. \\
+\hline
+{\em priority} & Tasks's priority -\/ higher value is higher priority \\
+\hline
+{\em delay} & Delay before the task is first run \\
+\hline
+{\em period} & Period of how often the task is run (0 no rescheduling) \\
+\hline
+{\em count} & Count the number of times to be scheduled (-\/1 infinite) \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__task_gac7895d51adab1e77f320e387b28a58e6}{\index{Task Management Module@{Task Management Module}!Task\+Shutdown@{Task\+Shutdown}}
+\index{Task\+Shutdown@{Task\+Shutdown}!Task Management Module@{Task Management Module}}
+\subsubsection[{Task\+Shutdown}]{\setlength{\rightskip}{0pt plus 5cm}void Task\+Shutdown (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{group__task_gac7895d51adab1e77f320e387b28a58e6}
+
+
+Shutdown Task Managment Module. 
+
+\hyperlink{group__task_gac7895d51adab1e77f320e387b28a58e6}{Task\+Shutdown()} turns the task management module off. This also elminates all tasks from queue and schedule. This function waits up to 1s to clear the task queue.
+
+\begin{DoxyAuthor}{Author}
+David Calhoun 
+
+Tony Samaritano 
+
+Aaron Johnson
+\end{DoxyAuthor}
+\begin{DoxySeeAlso}{See Also}
+\hyperlink{group__task_gaf8e57408c18da97569bf0faab543c71c}{Terminate\+All\+Tasks()} 
+\end{DoxySeeAlso}
+\hypertarget{group__task_gaf8e57408c18da97569bf0faab543c71c}{\index{Task Management Module@{Task Management Module}!Terminate\+All\+Tasks@{Terminate\+All\+Tasks}}
+\index{Terminate\+All\+Tasks@{Terminate\+All\+Tasks}!Task Management Module@{Task Management Module}}
+\subsubsection[{Terminate\+All\+Tasks}]{\setlength{\rightskip}{0pt plus 5cm}void Terminate\+All\+Tasks (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{group__task_gaf8e57408c18da97569bf0faab543c71c}
+
+
+Terminates Current Queue of tasks. 
+
+\hyperlink{group__task_gaf8e57408c18da97569bf0faab543c71c}{Terminate\+All\+Tasks()} removes all tasks from the queue and schedualer
+
+\begin{DoxyAuthor}{Author}
+David Calhoun 
+
+Tony Samaritano 
+
+Aaron Johnson
+\end{DoxyAuthor}
+\begin{DoxySeeAlso}{See Also}
+\hyperlink{group__task_ga65d31962fc809566ad27a3b2ce67b3fa}{Remove\+Task\+From\+Queue()} 
+
+\hyperlink{group__task_gafa9b5425e993bac4e5aa130daf3ceea7}{Remove\+Task\+From\+Schedule()} 
+\end{DoxySeeAlso}
+\hypertarget{group__task_ga51a214a49e3bca310762452c27c47c90}{\index{Task Management Module@{Task Management Module}!Wait\+Ms@{Wait\+Ms}}
+\index{Wait\+Ms@{Wait\+Ms}!Task Management Module@{Task Management Module}}
+\subsubsection[{Wait\+Ms}]{\setlength{\rightskip}{0pt plus 5cm}void Wait\+Ms (
+\begin{DoxyParamCaption}
+\item[{{\bf tint\+\_\+t}}]{wait}
+\end{DoxyParamCaption}
+)}}\label{group__task_ga51a214a49e3bca310762452c27c47c90}
+
+
+Wait a set number of milliseconds and run queued or shceduled tasks while waiting. 
+
+Wait\+Ms is similar to Delay\+Ms from Timer Module, exception being that it repeatedly calls \hyperlink{group__task_gafd2aa563748d1ede229e5867753ead5d}{System\+Tick()} to allow functions to be run from the Queue and the Schedule to push tasks into the Queue.
+
+\begin{DoxyWarning}{Warning}
+not safe to be called from any function that could be called by \hyperlink{group__task_gafd2aa563748d1ede229e5867753ead5d}{System\+Tick()} -\/ suggest using a dedicated mutex/flag and only use \hyperlink{group__task_ga51a214a49e3bca310762452c27c47c90}{Wait\+Ms()} in main or functions called by main (not through \hyperlink{group__task_gafd2aa563748d1ede229e5867753ead5d}{System\+Tick()}).
+\end{DoxyWarning}
+
+\begin{DoxyParams}{Parameters}
+{\em wait} & time amount for the wait \\
+\hline
+\end{DoxyParams}

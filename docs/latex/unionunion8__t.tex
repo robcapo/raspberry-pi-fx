@@ -1,0 +1,59 @@
+\hypertarget{unionunion8__t}{\section{union8\+\_\+t Union Reference}
+\label{unionunion8__t}\index{union8\+\_\+t@{union8\+\_\+t}}
+}
+
+
+8-\/bit union type  
+
+
+
+
+{\ttfamily \#include $<$int\+\_\+def.\+h$>$}
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{unionunion8__t_aeac77ec2a46c80da8263e0bd19182b40}{uint8\+\_\+t \hyperlink{unionunion8__t_aeac77ec2a46c80da8263e0bd19182b40}{b}}\label{unionunion8__t_aeac77ec2a46c80da8263e0bd19182b40}
+
+\begin{DoxyCompactList}\small\item\em byte member \end{DoxyCompactList}\item 
+\hypertarget{unionunion8__t_a6846896e6bcddce04deb3820167d9bf0}{\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\hypertarget{structunion8__t_1_1@0_ac89d8fe3fb13fb280d249c6fe2a90e8f}{\>uint8\_t {\bfseries b0}:1\\
+\hypertarget{structunion8__t_1_1@0_a62324dc0648b80bf430b31df4de400d3}{\>uint8\_t {\bfseries b1}:1\\
+\hypertarget{structunion8__t_1_1@0_a976f83a8ec9c91ca5c5b3f0df826f629}{\>uint8\_t {\bfseries b2}:1\\
+\hypertarget{structunion8__t_1_1@0_a6e3cb0201e8c0ce51da78ea9627c55ac}{\>uint8\_t {\bfseries b3}:1\\
+\hypertarget{structunion8__t_1_1@0_aa59df91449aa2c2f94d94f7db167e2e2}{\>uint8\_t {\bfseries b4}:1\\
+\hypertarget{structunion8__t_1_1@0_a987216c85371772e451d57cccf42d709}{\>uint8\_t {\bfseries b5}:1\\
+\hypertarget{structunion8__t_1_1@0_a34753b0e9678210b3af0fed13340a7a8}{\>uint8\_t {\bfseries b6}:1\\
+\hypertarget{structunion8__t_1_1@0_a0fe151083425820cb4a6f67b70cfe090}{\>uint8\_t {\bfseries b7}:1\\
+\} \hyperlink{unionunion8__t_a6846896e6bcddce04deb3820167d9bf0}{bits}}\label{unionunion8__t_a6846896e6bcddce04deb3820167d9bf0}
+\\
+
+\end{tabbing}\begin{DoxyCompactList}\small\item\em bitfield member, b0 L\+Sb, b7 M\+Sb \end{DoxyCompactList}\item 
+\hypertarget{unionunion8__t_a4e573d1a0347d6b7df41b2c8fb4f923d}{\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\hypertarget{structunion8__t_1_1@1_a5e3855ecf2e6e0b37f5ce42d0a8e9ef3}{\>uint8\_t {\bfseries low}:4\\
+\hypertarget{structunion8__t_1_1@1_a3df2ee72948a91c08b99d2ff97b484ff}{\>uint8\_t {\bfseries high}:4\\
+\} {\bfseries nibble}}\label{unionunion8__t_a4e573d1a0347d6b7df41b2c8fb4f923d}
+\\
+
+\end{tabbing}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+8-\/bit union type 
+
+Example usage 
+\begin{DoxyCode}
+\hyperlink{unionunion8__t}{union8\_t} x;
+x.\hyperlink{unionunion8__t_aeac77ec2a46c80da8263e0bd19182b40}{b} = 1; \textcolor{comment}{// same as x.bits.b0 = 1}
+x.\hyperlink{unionunion8__t_a6846896e6bcddce04deb3820167d9bf0}{bits}.b2 = 1; \textcolor{comment}{// same as x.b |= 4}
+\textcolor{comment}{// x now equals 5}
+\end{DoxyCode}
+ 
+
+The documentation for this union was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+int\+\_\+def.\+h\end{DoxyCompactItemize}

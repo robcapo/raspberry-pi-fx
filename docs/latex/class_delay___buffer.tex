@@ -1,0 +1,30 @@
+\hypertarget{class_delay___buffer}{\section{Delay\+\_\+\+Buffer Class Reference}
+\label{class_delay___buffer}\index{Delay\+\_\+\+Buffer@{Delay\+\_\+\+Buffer}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{group__delay_ga5d9be4601c4309b6ff4de2dc286f4da4}{new\+Frame} (jack\+\_\+default\+\_\+audio\+\_\+sample\+\_\+t $\ast$sample)
+\begin{DoxyCompactList}\small\item\em Add a frame of samples to the buffer and set the output buffer to the mixture of the delay and the dry signal. \end{DoxyCompactList}\item 
+void \hyperlink{group__delay_ga3e9ddb2b97fffe52c0713c26d89aae65}{set\+Delay\+Length} (double seconds)
+\begin{DoxyCompactList}\small\item\em Set the duration of the delay in seconds. \end{DoxyCompactList}\item 
+void \hyperlink{group__delay_ga07267d6e8a0f31681e45f755b83245a7}{set\+Decay} (double decay)
+\begin{DoxyCompactList}\small\item\em Set the rate of decay of the delay effect. \end{DoxyCompactList}\item 
+void \hyperlink{group__delay_ga52bd5fcb9ec627cf7da1ad3ecfc8bb87}{set\+Level} (double level)
+\begin{DoxyCompactList}\small\item\em Set the volume of the echo effect. \end{DoxyCompactList}\item 
+\hyperlink{group__delay_ga54225f6e4c9f3bde732baa1d824261fc}{Delay\+\_\+\+Buffer} (double, double, double, jack\+\_\+nframes\+\_\+t)
+\begin{DoxyCompactList}\small\item\em Initialize a delay buffer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{group__delay_ga82a3ce8e6e0e8e1e77add80058d5231c}{jack\+\_\+default\+\_\+audio\+\_\+sample\+\_\+t $\ast$ \hyperlink{group__delay_ga82a3ce8e6e0e8e1e77add80058d5231c}{\+\_\+output\+\_\+buffer}}\label{group__delay_ga82a3ce8e6e0e8e1e77add80058d5231c}
+
+\begin{DoxyCompactList}\small\item\em Holds one frame of data to be output each time the {\ttfamily new\+Frame} function is called. \end{DoxyCompactList}\item 
+\hypertarget{group__delay_gacaec3734e7f9717589775bc1bd9a1a08}{\hyperlink{class_f_x___processor}{F\+X\+\_\+\+Processor} $\ast$ \hyperlink{group__delay_gacaec3734e7f9717589775bc1bd9a1a08}{\+\_\+fx\+\_\+processor}}\label{group__delay_gacaec3734e7f9717589775bc1bd9a1a08}
+
+\begin{DoxyCompactList}\small\item\em Holds a pointer to the F\+X Processor object that will process each sample as it's echoed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{delay__buffer_8cpp}{delay\+\_\+buffer.\+cpp}\end{DoxyCompactItemize}
